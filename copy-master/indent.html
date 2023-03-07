@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|| Inventory Management ||</title>
+    <link rel="icon" href="./assets/PrintHtml/files/favicon.png">
+
+    <link href="./assets/global/css/style.css" rel="stylesheet">
+    <link href="./assets/global/css/theme.css" rel="stylesheet">
+    <link href="./assets/global/css/ui.css" rel="stylesheet">
+    <link href="./assets/global/plugins/metrojs/metrojs.min.css" rel="stylesheet">
+    <link href="./assets/global/plugins/maps-amcharts/ammap/ammap.min.css" rel="stylesheet">
+    <link href="./assets/plugins/jnotify/jNotify.jquery.css" rel="stylesheet">
+    <link href="./assets/global/plugins/datatables/dataTables.min.css" rel="stylesheet">
+    <link href="./assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="./assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+
+    <script src="./assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="./assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./assets/global/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="page-content">
+        <script src="./assets/plugins/datatables/dynamic/jquery.dataTables.min.js"></script>
+        <script src="./assets/plugins/datatables/dataTables.bootstrap.js"></script>
+        <script src="./assets/plugins/datatables/dataTables.tableTools.js"></script>
+        <script src="./assets/global/plugins/select2/select2.min.js"></script>
+        <script src="./assets/global/plugins/bootstrap-tags-input/bootstrap-tagsinput.min.js"></script>
+        <!-- Select Inputs -->
+        <!-- END PAGE SCRIPTS -->
+        <script src="./assets/global/plugins/noty/jquery.noty.packaged.min.js"></script> <!-- Notifications -->
+        <script src="./assets/global/js/pages/notifications.js"></script>
+
+        <script src="./Scripts/Indent/IndentRequest.js"></script>
+        <script src="./assets/global/plugins/bootstrap-loading/lada.min.js"></script> <!-- Buttons Loading State -->
+        <script src="./Scripts/General/custom.js"></script>
+
+
+        <div class="row">
+            <div class="col-md-12 portlets ui-sortable">
+                <div class="panel">
+                    <div class="panel-header panel-controls" style="color: #fff;">
+                        <h2 style="color: #fff;">Indent <strong>Request</strong></h2>
+                        <div class="control-btn"><a href="#" class="panel-reload hidden"><i
+                                    class="icon-reload"></i></a><a class="hidden" id="dropdownMenu1"
+                                data-toggle="dropdown"><i class="icon-settings"></i></a>
+                            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul><a href="#" class="panel-popout hidden tt" title="Pop Out/In"><i
+                                    class="icons-office-58"></i></a><a href="#" class="panel-maximize hidden"><i
+                                    class="icon-size-fullscreen"></i></a><a href="#" class="panel-toggle"><i
+                                    class="fa fa-angle-down"></i></a><a href="#" class="panel-close"><i
+                                    class="icon-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <form role="form">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>DepartMent</label>
+                                        <div class="select2-container form-control" id="s2id_ddlDepartment"><a
+                                                href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                    class="select2-chosen" id="select2-chosen-1">Select
+                                                    Department</span><abbr class="select2-search-choice-close"></abbr>
+                                                <span class="select2-arrow" role="presentation"><b
+                                                        role="presentation"></b></span></a><label for="s2id_autogen1"
+                                                class="select2-offscreen"></label><input
+                                                class="select2-focusser select2-offscreen" type="text"
+                                                aria-haspopup="true" role="button" aria-labelledby="select2-chosen-1"
+                                                id="s2id_autogen1">
+                                            <div class="select2-drop select2-display-none select2-with-searchbox">
+                                                <div class="select2-search"> <label for="s2id_autogen1_search"
+                                                        class="select2-offscreen"></label> <input type="text"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                        spellcheck="false" class="select2-input" role="combobox"
+                                                        aria-expanded="true" aria-autocomplete="list"
+                                                        aria-owns="select2-results-1" id="s2id_autogen1_search"
+                                                        placeholder=""> </div>
+                                                <ul class="select2-results" role="listbox" id="select2-results-1"> </ul>
+                                            </div>
+                                        </div><select class="form-control" data-search="true" data-val="true"
+                                            data-val-number="The field Indent_DeparmentID must be a number."
+                                            data-val-required="The Indent_DeparmentID field is required."
+                                            id="ddlDepartment" name="Indent_DeparmentID" tabindex="-1" title=""
+                                            style="display: none;">
+                                            <option value="-1">Select Department</option>
+                                            <option value="1">SuperAdmin</option>
+                                            <option value="3">Chamoli</option>
+                                            <option value="12">Champawat</option>
+                                            <option value="21">Dehradun</option>
+                                            <option value="35">SellCounter1</option>
+                                            <option value="39">SellCounter</option>
+                                            <option value="41">Tehri Garhwal</option>
+                                            <option value="49">Nainital</option>
+                                            <option value="64">Chamoli</option>
+                                            <option value="65">Pithoragarh</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Sub-DepartMent</label>
+                                        <div class="select2-container form-control" id="s2id_ddlsubdep"><a
+                                                href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                    class="select2-chosen" id="select2-chosen-2">Select
+                                                    Sub-Department</span><abbr
+                                                    class="select2-search-choice-close"></abbr> <span
+                                                    class="select2-arrow" role="presentation"><b
+                                                        role="presentation"></b></span></a><label for="s2id_autogen2"
+                                                class="select2-offscreen"></label><input
+                                                class="select2-focusser select2-offscreen" type="text"
+                                                aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2"
+                                                id="s2id_autogen2">
+                                            <div class="select2-drop select2-display-none">
+                                                <div class="select2-search select2-search-hidden select2-offscreen">
+                                                    <label for="s2id_autogen2_search" class="select2-offscreen"></label>
+                                                    <input type="text" autocomplete="off" autocorrect="off"
+                                                        autocapitalize="off" spellcheck="false" class="select2-input"
+                                                        role="combobox" aria-expanded="true" aria-autocomplete="list"
+                                                        aria-owns="select2-results-2" id="s2id_autogen2_search"
+                                                        placeholder=""> </div>
+                                                <ul class="select2-results" role="listbox" id="select2-results-2"> </ul>
+                                            </div>
+                                        </div><select class="form-control" data-val="true"
+                                            data-val-number="The field Indent_SubDeparmentID must be a number."
+                                            data-val-required="The Indent_SubDeparmentID field is required."
+                                            id="ddlsubdep" name="Indent_SubDeparmentID" tabindex="-1" title=""
+                                            style="display: none;">
+                                            <option value="-1">Select Sub-Department</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <hr>
+                            <div class="row m-t-10">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Item Category</label>
+                                        <div>
+                                            <div class="select2-container form-control" id="s2id_ddlCategory"><a
+                                                    href="javascript:void(0)" class="select2-choice" tabindex="-1">
+                                                    <span class="select2-chosen" id="select2-chosen-3">Select
+                                                        Category</span><abbr class="select2-search-choice-close"></abbr>
+                                                    <span class="select2-arrow" role="presentation"><b
+                                                            role="presentation"></b></span></a><label
+                                                    for="s2id_autogen3" class="select2-offscreen"></label><input
+                                                    class="select2-focusser select2-offscreen" type="text"
+                                                    aria-haspopup="true" role="button"
+                                                    aria-labelledby="select2-chosen-3" id="s2id_autogen3">
+                                                <div class="select2-drop select2-display-none select2-with-searchbox">
+                                                    <div class="select2-search"> <label for="s2id_autogen3_search"
+                                                            class="select2-offscreen"></label> <input type="text"
+                                                            autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                            spellcheck="false" class="select2-input" role="combobox"
+                                                            aria-expanded="true" aria-autocomplete="list"
+                                                            aria-owns="select2-results-3" id="s2id_autogen3_search"
+                                                            placeholder=""> </div>
+                                                    <ul class="select2-results" role="listbox" id="select2-results-3">
+                                                    </ul>
+                                                </div>
+                                            </div><select class="form-control" data-search="true" data-val="true"
+                                                data-val-number="The field CategoryID must be a number."
+                                                data-val-required="The CategoryID field is required." id="ddlCategory"
+                                                name="CategoryID" tabindex="-1" title="" style="display: none;">
+                                                <option value="-1">Select Category</option>
+                                                <option value="1">Stationery</option>
+                                                <option value="2">Admin</option>
+                                                <option value="3">ELECTRIC</option>
+                                                <option value="4">CIVIL</option>
+                                                <option value="5">Furniture</option>
+                                                <option value="6">Gausala</option>
+                                                <option value="7">Guest Hosue</option>
+                                                <option value="8">General </option>
+                                                <option value="9">INFORMATION TECHNOLOGY</option>
+                                                <option value="10">Medical</option>
+                                                <option value="11">Sanitation</option>
+                                                <option value="12">TEMPLE</option>
+                                                <option value="13">Sales</option>
+                                                <option value="14">Stores</option>
+                                                <option value="15">Library</option>
+                                                <option value="16">Transport</option>
+                                                <option value="17">PHISIOTHERAPY</option>
+                                                <option value="18">Parking</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Items</label>
+                                        <div class="select2-container form-control" id="s2id_ddlitem"><a
+                                                href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                    class="select2-chosen" id="select2-chosen-4">&nbsp;</span><abbr
+                                                    class="select2-search-choice-close"></abbr> <span
+                                                    class="select2-arrow" role="presentation"><b
+                                                        role="presentation"></b></span></a><label for="s2id_autogen4"
+                                                class="select2-offscreen"></label><input
+                                                class="select2-focusser select2-offscreen" type="text"
+                                                aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4"
+                                                id="s2id_autogen4">
+                                            <div class="select2-drop select2-display-none select2-with-searchbox">
+                                                <div class="select2-search"> <label for="s2id_autogen4_search"
+                                                        class="select2-offscreen"></label> <input type="text"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                        spellcheck="false" class="select2-input" role="combobox"
+                                                        aria-expanded="true" aria-autocomplete="list"
+                                                        aria-owns="select2-results-4" id="s2id_autogen4_search"
+                                                        placeholder=""> </div>
+                                                <ul class="select2-results" role="listbox" id="select2-results-4"> </ul>
+                                            </div>
+                                        </div><select class="form-control" data-search="true" data-val="true"
+                                            data-val-number="The field ItemID must be a number."
+                                            data-val-required="The ItemID field is required." id="ddlitem" name="ItemID"
+                                            tabindex="-1" title="" style="display: none;"></select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <span id="spn"
+                                            style="float: right; color: red; display: none;"><label>&nbsp;&nbsp;&nbsp;
+                                                Instock:&nbsp;</label><span id="spn1">0</span> </span>
+                                        <div>
+
+                                            <input type="number" class="form-control" data-val="true"
+                                                data-val-number="The field Quantity must be a number."
+                                                data-val-required="The Quantity field is required." id="txtQuantity"
+                                                maxlength="20" min="0" name="Quantity" placeholder="Quantity" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Unit (UOM)</label>
+                                        <div>
+                                            <input class="form-control" disabled="True" id="txtUnit" maxlength="20"
+                                                name="Unit" placeholder="Unit" type="text" value="">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Remarks</label>
+                                    <textarea rows="2" id="message" class="form-control form-white"></textarea>
+                                </div>
+                            </div>
+                            <div class="row m-t-10">
+
+                                <div class="col-md-3">
+
+                                    <button type="button" id="btnadditem" class="btn btn-block btn-dark ladda-button"
+                                        data-style="zoom-in"><span class="ladda-label"><i class="fa fa-plus"></i>Add
+                                            Item</span><span class="ladda-spinner"></span></button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row m-t-10" id="addbtn" style="display:none">
+                                <div class="col-md-3">
+                                    <label>Depart. Req.No</label>
+                                    <input type="number" class="form-control form-white" id="deprequestNo" value="0">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Priority</label>
+                                    <div class="select2-container form-control form-white" id="s2id_ddlPriority"><a
+                                            href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                class="select2-chosen" id="select2-chosen-5">General</span><abbr
+                                                class="select2-search-choice-close"></abbr> <span class="select2-arrow"
+                                                role="presentation"><b role="presentation"></b></span></a><label
+                                            for="s2id_autogen5" class="select2-offscreen"></label><input
+                                            class="select2-focusser select2-offscreen" type="text" aria-haspopup="true"
+                                            role="button" aria-labelledby="select2-chosen-5" id="s2id_autogen5">
+                                        <div class="select2-drop select2-display-none form-white">
+                                            <div class="select2-search select2-search-hidden select2-offscreen"> <label
+                                                    for="s2id_autogen5_search" class="select2-offscreen"></label> <input
+                                                    type="text" autocomplete="off" autocorrect="off"
+                                                    autocapitalize="off" spellcheck="false" class="select2-input"
+                                                    role="combobox" aria-expanded="true" aria-autocomplete="list"
+                                                    aria-owns="select2-results-5" id="s2id_autogen5_search"
+                                                    placeholder=""> </div>
+                                            <ul class="select2-results" role="listbox" id="select2-results-5"> </ul>
+                                        </div>
+                                    </div><select class="form-control form-white" data-style="white" id="ddlPriority"
+                                        tabindex="-1" title="" style="display: none;">
+                                        <option value="Urgent">Urgent</option>
+                                        <option value="General" selected="selected">General</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label></label>
+                                    <button type="button" id="btnsubmitIdent"
+                                        class="btn btn-block btn-danger ladda-button" data-style="zoom-in"><span
+                                            class="ladda-label"><i class="icons-office-51"></i>Process To
+                                            Indent</span><span class="ladda-spinner"></span></button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 portlets ui-sortable">
+                <div class="panel">
+
+                    <div class="panel-content">
+                        <div class="row">
+                            <div class="col-lg-12 portlets ui-sortable">
+                                <div class="panel">
+                                    <div class="panel-content pagination2 table-responsive">
+                                        <div id="ItemRate_wrapper" class="dataTables_wrapper form-inline no-footer">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div class="dataTables_length" id="ItemRate_length"><label>
+                                                            <div class="select2-container form-control"
+                                                                id="s2id_autogen6"><a href="javascript:void(0)"
+                                                                    class="select2-choice" tabindex="-1"> <span
+                                                                        class="select2-chosen"
+                                                                        id="select2-chosen-7">100</span><abbr
+                                                                        class="select2-search-choice-close"></abbr>
+                                                                    <span class="select2-arrow" role="presentation"><b
+                                                                            role="presentation"></b></span></a><label
+                                                                    for="s2id_autogen7"
+                                                                    class="select2-offscreen"></label><input
+                                                                    class="select2-focusser select2-offscreen"
+                                                                    type="text" aria-haspopup="true" role="button"
+                                                                    aria-labelledby="select2-chosen-7"
+                                                                    id="s2id_autogen7">
+                                                                <div class="select2-drop select2-display-none">
+                                                                    <div
+                                                                        class="select2-search select2-search-hidden select2-offscreen">
+                                                                        <label for="s2id_autogen7_search"
+                                                                            class="select2-offscreen"></label> <input
+                                                                            type="text" autocomplete="off"
+                                                                            autocorrect="off" autocapitalize="off"
+                                                                            spellcheck="false" class="select2-input"
+                                                                            role="combobox" aria-expanded="true"
+                                                                            aria-autocomplete="list"
+                                                                            aria-owns="select2-results-7"
+                                                                            id="s2id_autogen7_search" placeholder="">
+                                                                    </div>
+                                                                    <ul class="select2-results" role="listbox"
+                                                                        id="select2-results-7"> </ul>
+                                                                </div>
+                                                            </div><select name="ItemRate_length"
+                                                                aria-controls="ItemRate" class="form-control"
+                                                                tabindex="-1" title="" style="display: none;">
+                                                                <option value="10">10</option>
+                                                                <option value="25">25</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                            </select>
+                                                        </label></div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div id="ItemRate_filter" class="dataTables_filter">
+                                                        <label>Search:<input type="search" class="form-control"
+                                                                aria-controls="ItemRate"></label></div>
+                                                </div>
+                                            </div>
+                                            <table id="ItemRate" class="table table-hover dataTable no-footer"
+                                                role="grid" aria-describedby="ItemRate_info" style="width: 1106px;">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_desc" rowspan="1" colspan="1"
+                                                            style="width: 221px;" aria-label="Category">Category</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            style="width: 221px;" aria-label="ItemName">ItemName</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            style="width: 54px;" aria-label="Quanity">Quanity</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            style="width: 37px;" aria-label="Unit">Unit</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            style="width: 275px;" aria-label="Remarks">Remarks</th>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                            style="width: 189px;" aria-label="Action">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="odd">
+                                                        <td valign="top" colspan="6" class="dataTables_empty">No
+                                                            matching records found</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div class="dataTables_info" id="ItemRate_info" role="status"
+                                                        aria-live="polite">Showing 0 to 0 of 0 entries (filtered from
+                                                        NaN total entries)</div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="dataTables_paginate paging_simple_numbers"
+                                                        id="ItemRate_paginate">
+                                                        <ul class="pagination">
+                                                            <li class="paginate_button previous disabled"
+                                                                aria-controls="ItemRate" tabindex="0"
+                                                                id="ItemRate_previous"><a href="#">Previous</a></li>
+                                                            <li class="paginate_button next disabled"
+                                                                aria-controls="ItemRate" tabindex="0"
+                                                                id="ItemRate_next"><a href="#">Next</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row" style="display:none">
+                <button type="button" id="show" class="btn btn-block btn-dark ladda-button" data-style="zoom-in"><span
+                        class="ladda-label"><i class="fa fa-plus"></i>Add Item</span><span
+                        class="ladda-spinner"></span></button>
+            </div>
+            <div class="row" style="display:none">
+                <div class="col-md-12" id="preview">
+                    <p class=" p-t-10 border-top"><strong>Notification preview</strong></p>
+                    <div id="basic-preview" class="preview active">
+                        <div class="alert alert-success media fade in">
+
+                            <p><strong>Item Added</strong> successfully </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="modal fade in" id="colored-header" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-backdrop fade in" style="height: 100%;"></div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                                    class="icons-office-52"></i></button>
+                            <h4 class="modal-title"><strong>Edit</strong> Item</h4>
+                        </div>
+                        <div class="modal-body" id="bodylogs">
+                            <p>
+
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="modal fade in" id="colored-header1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-backdrop fade in" style="height: 100%;"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                                class="icons-office-52"></i></button>
+                        <h4>Unit Conversion</h4>
+                    </div>
+                    <div class="modal-body" id="units">
+                        <p>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="footer">
+            <div class="copyright">
+                <p class="pull-left sm-pull-reset">
+                    <span>Copyright <span class="copyright">©</span> 2017 </span>
+                    <span>Alight Consultants Pvt. Ltd.&nbsp;</span>
+                    <span>All rights reserved. </span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

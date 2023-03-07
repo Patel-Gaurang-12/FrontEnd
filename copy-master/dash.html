@@ -1,0 +1,2464 @@
+<html style=""
+    class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|| Inventory Management ||</title>
+    <link rel="icon" href="./assets/PrintHtml/files/favicon.png">
+
+    <link href="./assets/global/css/style.css" rel="stylesheet">
+    <link href="./assets/global/css/theme.css" rel="stylesheet">
+    <link href="./assets/global/css/ui.css" rel="stylesheet">
+    <link href="./assets/global/plugins/metrojs/metrojs.min.css" rel="stylesheet">
+    <link href="./assets/global/plugins/maps-amcharts/ammap/ammap.min.css" rel="stylesheet">
+    <link href="./assets/plugins/jnotify/jNotify.jquery.css" rel="stylesheet">
+    <link href="./assets/global/plugins/datatables/dataTables.min.css" rel="stylesheet">
+    <link href="./assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="./assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+
+    <script src="./assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="./assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./assets/global/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML =
+                h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+
+
+
+
+</head>
+<!-- BEGIN BODY -->
+
+<body class="fixed-topbar fixed-sidebar theme-sdtl color-default" onload="startTime()">
+    <!--[if lt IE 7]>
+
+    <![endif]-->
+    <section style="opacity: 1;">
+        <!-- BEGIN SIDEBAR -->
+        <div class="sidebar">
+            <div class="logopanel">
+                <h1>
+                    <a href="/Dashbord">Inventory</a>
+                </h1>
+            </div>
+            <div class="sidebar-inner mCustomScrollbar _mCS_1">
+                <div class="mCustomScrollBox mCS-light-thin" id="mCSB_1"
+                    style="position:relative; height:100%; overflow:hidden; max-width:100%;">
+                    <div class="mCSB_container mCS_no_scrollbar" style="position:relative; top:0;">
+                        <div class="sidebar-top">
+                            <div class="userlogged clearfix">
+                                <i class="icon icons-faces-users-01"></i>
+                                <div class="user-details">
+                                    <h4> &nbsp;Superadmin </h4>
+
+                                    <h5 style="color: #fff;"><strong>&nbsp;&nbsp;2019-20 </strong></h5>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-title">
+                            Navigation
+                        </div>
+                        <ul class="nav nav-sidebar">
+
+                            <li class="nav-active active"><a href="/Dashbord"><i
+                                        class="icon-home"></i><span>Dashboard</span></a></li>
+
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon-docs"></i><span>Permission Management</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li>
+                                        <a href="/Permission/Listmaster"><span>Page Master Mangement</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="/RoleAccess"><span>User Access Mangement</span></a>
+                                    </li>
+
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="fa fa-table"></i><span>Master</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li><a href="/Department">Department Master</a></li>
+                                    <li><a href="/User">User Master</a></li>
+                                    <li><a href="/Category">Item Category Master</a></li>
+                                    <li><a href="/Item/Unit">UOM Master</a></li>
+                                    <li><a href="/Item">Item Master</a></li>
+                                    <li><a href="/Conversion/Item">Unit Conversion Master</a></li>
+                                    <li><a href="/Country">Country Master</a></li>
+                                    <li><a href="/State">State Master</a></li>
+                                    <li><a href="/City">City Master</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="fa fa-indent"></i><span>Indent</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li>
+                                        <a href="/Indent/Request"><span>Indent Request</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="/Indent/MyIndent"><span>MyIndent</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/Indent/Approved"><span>Approval Pending Indent List</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="/Indent/List"><span>Indent List</span></a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon icons-documents-bookmarks-01"></i><span>Purchase Order</span>
+                                    <span class="fa arrow"></span></a>
+                                <ul class="children collapse">
+
+                                    <li><a href="/PurchaseOrder/Create">Genrate P.O</a></li>
+                                    <li><a href="/PurchaseOrder">P.O List</a></li>
+                                    <li><a href="/PurchaseOrder/Cancellationlist">P.O Cancellation</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon-note"></i><span>GRN</span> <span class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li><a href="/GRN">Genrate GRN</a></li>
+                                    <li><a href="/GRN/List">GRN List</a></li>
+                                    <li><a href="/ItemDonation/DonarList">Item Donations</a></li>
+                                </ul>
+
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon-note"></i><span>Issue Note</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li><a href="/Indent/IssueNote">Genrate IssueNote</a></li>
+                                    <li><a href="/IssueNote">IssueNote List</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon-note"></i><span>PRN</span> <span class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li><a href="/PRNotes/Polist">Genrate PRN</a></li>
+                                    <li><a href="/PRNotes/List">PRN List</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon icons-shopping-27"></i><span>Asset Management</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li><a href="/Asset">Asset-Code List</a></li>
+                                    <li><a href="/Asset/List">Asset-Transfer</a></li>
+                                    <li><a href="/Asset/Repair">Asset-Repair &amp; maintenance</a></li>
+                                    <li><a href="/Asset/ViewInRepair">Asset Repair List</a></li>
+                                    <li><a href="/Asset/ReceivedAssetList">Asset Repair Received List</a></li>
+
+
+
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="fa fa-table"></i><span>Stock Management</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li><a href="/Stock">Stock List</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-parent">
+                                <a href="#"><i class="fa fa-table"></i><span>SellCounter-Management</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li>
+                                        <a href="/Sales"><span> Sellcounter Item List </span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/Sales/IssuedIndentlist"><span>Sellcounter Issued List</span></a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon-bar-chart"></i><span>MIS Report</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+
+                                    <li><a href="/MISReport/IndentRegister">Indent-Register Report</a></li>
+                                    <li><a href="/MISReport/IndentPennding">Indent Pending Report</a></li>
+                                    <li><a href="/MISReport/PORegister">Purchase Register Report</a></li>
+                                    <li><a href="/MISReport/POSummary">Purchase-Summry Wise Report</a></li>
+                                    <li><a href="/MISReport/GRNRegister">GRN Register Report</a></li>
+                                    <li><a href="/MISReport/PendingGRN">GRN Pending Report</a></li>
+                                    <li><a href="/MISReport/PRNRegister">PRN Register Report</a></li>
+                                    <li><a href="/MISReport/PendingPRN">PRN Pending Report</a></li>
+                                    <li><a href="/MISReport/IssueNoteindentWise">Issue-Note Register Report</a></li>
+                                    <li><a href="/MISReport/DonationWiseReport">Items Donatation Report</a></li>
+                                    <li><a href="/MISReport/ItemPoWiseReport">Item With Rates Report</a></li>
+                                    <li><a href="/MISReport/ItemStockWiseReport">Stock Report</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li class="nav-parent">
+                                <a href="#"><i class="icon-settings"></i><span>Setting</span> <span
+                                        class="fa arrow"></span></a>
+                                <ul class="children collapse">
+                                    <li>
+                                        <a href="/Setting"><i class="icon-settings"></i><span>Account Setting
+                                            </span></a>
+                                    </li>
+                                    <li>
+                                        <a href="/login/Logout"><i class="icon-logout"></i><span>Logout</span></a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mCSB_scrollTools" style="position: absolute; display: none;">
+                        <div class="mCSB_draggerContainer">
+                            <div class="mCSB_dragger" style="position: absolute; top: 0px;"
+                                oncontextmenu="return false;">
+                                <div class="mCSB_dragger_bar" style="position:relative;"></div>
+                            </div>
+                            <div class="mCSB_draggerRail"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <div class="main-content">
+            <!-- BEGIN TOPBAR -->
+            <div class="topbar">
+                <div class="header-left">
+                    <div class="topnav">
+                        <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span
+                                class="menu__handle"><span>Menu</span></span></a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="header-right">
+                    <ul class="header-menu nav navbar-nav">
+                        <li class="dropdown" id="user-header">
+
+                            <a href="#" id="viewconversion">
+
+                                <b> View Unit Conversion</b>
+                            </a>
+
+                        </li>
+                        <li class="dropdown" id="user-header">
+
+
+                            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+
+                                <strong> Time : </strong><b id="txt">17:30:14</b>
+                            </a>
+
+
+                        </li>
+                        <li class="dropdown" id="user-header">
+
+
+                            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+
+                                <span class="username">Hi, &nbsp;Superadmin</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/Setting"><i class="icon-settings"></i><span>Account Setting </span></a>
+                                </li>
+                                <li>
+                                    <a href="/login/Logout"><i class="icon-logout"></i><span>Logout</span></a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <!-- END USER DROPDOWN -->
+                        <!-- CHAT BAR ICON -->
+                    </ul>
+                </div>
+                <!-- header-right -->
+            </div>
+            <!-- END TOPBAR -->
+            <!-- BEGIN PAGE CONTENT -->
+            <div class="page-content">
+
+
+
+
+                <!-- END PAGE SCRIPT -->
+                <script src="../assets/global/plugins/countup/countUp.min.js"></script> <!-- Animated Counter Number -->
+                <!-- END PAGE SCRIPTS -->
+
+                <script src="/Scripts/Common/jquery.min.js"></script>
+                <script src="/Scripts/Common/highcharts.js"></script>
+                <script src="/Scripts/Common/highcharts-3d.js"></script>
+                <script src="/Scripts/Common/exporting.js"></script>
+
+
+                <div class="header">
+                    <div class="breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="/Dashbord">Dashboard</a>
+                            </li>
+                            <li class="active">Charts Á Records</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <h2><strong> || Shree Somnath Trust -Inventory Management ||</strong></h2>
+                    <p>
+
+                    </p>
+                    <marquee>Inventory Management System.you can Create a Indent,PO,GRN,PRN,Issued Item,Stock
+                        Management,Asset managemnet,Inventory Management.User Friendly Resoponsive web application
+                    </marquee>
+                    <h3 class="m-t-30 m-b-10"><strong>Dashboard</strong></h3>
+
+                    <div class="row m-t-10">
+                        <div id="container" style="height: 400px; overflow: hidden;" data-highcharts-chart="0">
+                            <div id="highcharts-ir30w9p-0" dir="ltr" class="highcharts-container  highcharts-3d-chart"
+                                style="position: relative; overflow: hidden; width: 1246px; height: 400px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                <svg version="1.1" class="highcharts-root"
+                                    style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
+                                    xmlns="http://www.w3.org/2000/svg" width="1246" height="400" viewBox="0 0 1246 400">
+                                    <desc>Created with Highcharts 7.0.3</desc>
+                                    <defs>
+                                        <clipPath id="highcharts-ir30w9p-8">
+                                            <rect x="0" y="0" width="1246" height="400" fill="none"></rect>
+                                        </clipPath>
+                                    </defs>
+                                    <rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="1246"
+                                        height="400" rx="0" ry="0"></rect>
+                                    <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-bottom"
+                                        data-z-index="-1000">
+                                        <path fill="none"
+                                            d="M 65.20001978658263 358.39745966832993 L 1179.8915111902684 358.39745966832993 L 1165.1837587455673 291.54859746354225 L 79.93176530215612 291.54859746354225 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 80.53254211021374 291.5865587168677 L 1165.4674578897861 291.5865587168677 L 1180.0411229362498 357.7923523204669 L 65.95887706375004 357.7923523204669 Z"
+                                            visibility="visible"></path>
+                                        <path fill="none"
+                                            d="M 65.20001978658263 358.39745966832993 L 79.93176530215612 291.54859746354225 L 80.53254211021374 291.5865587168677 L 65.95887706375004 357.7923523204669 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1165.1837587455673 291.54859746354225 L 1179.8915111902684 358.39745966832993 L 1180.0411229362498 357.7923523204669 L 1165.4674578897861 291.5865587168677 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1179.8915111902684 358.39745966832993 L 65.20001978658263 358.39745966832993 L 65.95887706375004 357.7923523204669 L 1180.0411229362498 357.7923523204669 Z"
+                                            visibility="visible"></path>
+                                        <path fill="none"
+                                            d="M 79.93176530215612 291.54859746354225 L 1165.1837587455673 291.54859746354225 L 1165.4674578897861 291.5865587168677 L 80.53254211021374 291.5865587168677 Z"
+                                            visibility="hidden"></path>
+                                    </g>
+                                    <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-left"
+                                        data-z-index="-1000">
+                                        <path fill="none"
+                                            d="M 65.20001978658263 358.39745966832993 L 65.95887706375004 357.7923523204669 L 80.53254211021374 291.5865587168677 L 79.93176530215612 291.54859746354225 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 28.133125074972213 70.33930773238774 L 28.931804201366504 70.98198312711611 L 11.408932884256046 137.16414006362726 L 10.411231306579452 137.16414006362726 Z"
+                                            visibility="visible"></path>
+                                        <path fill="none"
+                                            d="M 79.93176530215612 291.54859746354225 L 28.133125074972213 70.33930773238774 L 10.411231306579452 137.16414006362726 L 65.20001978658263 358.39745966832993 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 28.931804201366504 70.98198312711611 L 80.53254211021374 291.5865587168677 L 65.95887706375004 357.7923523204669 L 11.408932884256046 137.16414006362726 Z"
+                                            visibility="visible"></path>
+                                        <path fill="none"
+                                            d="M 65.20001978658263 358.39745966832993 L 10.411231306579452 137.16414006362726 L 11.408932884256046 137.16414006362726 L 65.95887706375004 357.7923523204669 Z"
+                                            visibility="visible"></path>
+                                        <path fill="none"
+                                            d="M 28.133125074972213 70.33930773238774 L 79.93176530215612 291.54859746354225 L 80.53254211021374 291.5865587168677 L 28.931804201366504 70.98198312711611 Z"
+                                            visibility="hidden"></path>
+                                    </g>
+                                    <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-right"
+                                        data-z-index="-1000">
+                                        <path fill="none"
+                                            d="M 1165.1837587455673 291.54859746354225 L 1165.4674578897861 291.5865587168677 L 1180.0411229362498 357.7923523204669 L 1179.8915111902684 358.39745966832993 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1234.591067115744 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1217.0681957986335 70.98198312711611 L 1216.898036366518 70.33930773238774 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1234.591067115744 137.16414006362726 L 1180.0411229362498 357.7923523204669 L 1165.4674578897861 291.5865587168677 L 1217.0681957986335 70.98198312711611 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1179.8915111902684 358.39745966832993 L 1234.591067115744 137.16414006362726 L 1216.898036366518 70.33930773238774 L 1165.1837587455673 291.54859746354225 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1234.591067115744 137.16414006362726 L 1179.8915111902684 358.39745966832993 L 1180.0411229362498 357.7923523204669 L 1234.591067115744 137.16414006362726 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1165.1837587455673 291.54859746354225 L 1216.898036366518 70.33930773238774 L 1217.0681957986335 70.98198312711611 L 1165.4674578897861 291.5865587168677 Z"
+                                            visibility="hidden"></path>
+                                    </g>
+                                    <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-back"
+                                        data-z-index="-1000">
+                                        <path fill="none"
+                                            d="M 1165.1837587455673 291.54859746354225 L 79.93176530215612 291.54859746354225 L 80.53254211021374 291.5865587168677 L 1165.4674578897861 291.5865587168677 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 28.133125074972213 70.33930773238774 L 1216.898036366518 70.33930773238774 L 1217.0681957986335 70.98198312711611 L 28.931804201366504 70.98198312711611 Z"
+                                            visibility="visible"></path>
+                                        <path fill="none"
+                                            d="M 79.93176530215612 291.54859746354225 L 28.133125074972213 70.33930773238774 L 28.931804201366504 70.98198312711611 L 80.53254211021374 291.5865587168677 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1216.898036366518 70.33930773238774 L 1165.1837587455673 291.54859746354225 L 1165.4674578897861 291.5865587168677 L 1217.0681957986335 70.98198312711611 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 28.931804201366504 70.98198312711611 L 1217.0681957986335 70.98198312711611 L 1165.4674578897861 291.5865587168677 L 80.53254211021374 291.5865587168677 Z"
+                                            visibility="visible"></path>
+                                        <path fill="none"
+                                            d="M 79.93176530215612 291.54859746354225 L 1165.1837587455673 291.54859746354225 L 1216.898036366518 70.33930773238774 L 28.133125074972213 70.33930773238774 Z"
+                                            visibility="hidden"></path>
+                                    </g>
+                                    <rect fill="none" class="highcharts-plot-background" x="10" y="53" width="1226"
+                                        height="332"></rect>
+                                    <rect fill="none" class="highcharts-plot-border" data-z-index="1" x="10" y="53"
+                                        width="1226" height="332"></rect>
+                                    <g class="highcharts-series-group" data-z-index="3">
+                                        <g data-z-index="0.1"
+                                            class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker "
+                                            transform="translate(10,53) scale(1 1)" style="cursor:pointer;">
+                                            <path fill="#f15c80" visibility="hidden" d="M 0 0"
+                                                class="highcharts-halo highcharts-color-5" data-z-index="-1"
+                                                fill-opacity="0.25"></path>
+                                            <path fill="rgb(99,156,211)"
+                                                d="M 756.8665128044315 123.3477638716775 L 756.8665128044315 141.90931687782438 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="20.163647305236008" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-0 ">
+                                            </path>
+                                            <path fill="rgb(203,186,59)"
+                                                d="M 494.3309887995419 94.39809436647111 L 494.3309887995419 112.95964737261798 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="39.49905808426557" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-6 ">
+                                            </path>
+                                            <path fill="rgb(203,186,59)"
+                                                d="M 612.9377590616397 55.69135091465948 L 612.9377590616397 74.25290392080635 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="85574.50905808428" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-6 ">
+                                            </path>
+                                            <path fill="rgb(216,67,103)"
+                                                d="M 464.6954648045355 131.78184078258124 L 464.6954648045355 150.34339378872812 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="85575.49905808434" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-5 ">
+                                            </path>
+                                            <path fill="rgb(203,186,59)"
+                                                d="M 494.3309887995419 94.39809436647111 C 525.0913526947098 68.90783726152242 565.5488780447556 55.7047203487283 612.9377590616397 55.69135091465948 L 612.9377590616397 74.25290392080635 C 565.5488780447556 74.26627335487517 525.0913526947098 87.46939026766928 494.3309887995419 112.95964737261798 Z"
+                                                data-z-index="86438.89803846898" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-6 ">
+                                            </path>
+                                            <path fill="rgb(203,186,59)"
+                                                d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                                data-z-index="86438.89803846898" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-6 ">
+                                            </path>
+                                            <path fill="rgb(99,156,211)"
+                                                d="M 612.9682269802236 55.69134442285316 L 612.9682269802236 74.25289742900003 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="116204.84635269475" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-0 ">
+                                            </path>
+                                            <path fill="rgb(42,42,47)"
+                                                d="M 741.2224247514717 228.8291723280403 L 741.2224247514717 247.39072533418718 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="116205.83635269477" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-1 ">
+                                            </path>
+                                            <path fill="rgb(99,156,211)"
+                                                d="M 612.9682269802236 55.69134442285316 C 677.3602635768839 55.6820707650358 731.968517852589 81.35714351161894 756.8665128044315 123.3477638716775 L 756.8665128044315 141.90931687782438 C 731.968517852589 99.91869651776581 677.3602635768839 74.24362377118267 612.9682269802236 74.25289742900003 Z"
+                                                data-z-index="117378.63267948964" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-0 ">
+                                            </path>
+                                            <path fill="rgb(99,156,211)"
+                                                d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                                data-z-index="117378.63267948964" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-0 ">
+                                            </path>
+                                            <path fill="rgb(216,67,103)"
+                                                d="M 494.32997620161495 94.39893348667657 L 494.32997620161495 112.96048649282343 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="124283.50905808428" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-5 ">
+                                            </path>
+                                            <path fill="rgb(103,108,208)"
+                                                d="M 458.3692954441662 180.58329881347896 L 458.3692954441662 199.14485181962584 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="124284.49905808434" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-4 ">
+                                            </path>
+                                            <path fill="rgb(216,67,103)"
+                                                d="M 464.6954648045355 131.78184078258124 C 471.34789712370457 117.36572510632608 480.40984549166916 105.93439184691282 494.32997620161495 94.39893348667657 L 494.32997620161495 112.96048649282343 C 480.40984549166916 124.49594485305968 471.34789712370457 135.92727811247295 464.6954648045355 150.34339378872812 Z"
+                                                data-z-index="125538.89803846898" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-5 ">
+                                            </path>
+                                            <path fill="rgb(216,67,103)"
+                                                d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                                data-z-index="125538.89803846898" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-5 ">
+                                            </path>
+                                            <path fill="rgb(103,108,208)"
+                                                d="M 464.6949808941023 131.7828894557173 L 464.6949808941023 150.3444424618642 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="168635.50905808425" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-4 ">
+                                            </path>
+                                            <path fill="rgb(222,138,67)"
+                                                d="M 465.29612909477817 201.49342558568821 L 465.29612909477817 220.0549785918351 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="168636.4990580843" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-3 ">
+                                            </path>
+                                            <path fill="rgb(103,108,208)"
+                                                d="M 458.3692954441662 180.58329881347896 C 457.40783059992873 175.4859615041491 457 171.14247556809352 457 166 L 457 184.56155300614688 C 457 172.32917734848928 459.32887127747074 161.97343416455283 464.6949808941023 150.3444424618642 L 464.6949808941023 131.7828894557173 C 459.32887127747074 143.41188115840595 457 153.7676243423424 457 166 L 457 184.56155300614688 C 457 189.7040285742404 457.40783059992873 194.04751451029597 458.3692954441662 199.14485181962584 Z"
+                                                data-z-index="170338.89803846893" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-4 ">
+                                            </path>
+                                            <path fill="rgb(103,108,208)"
+                                                d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                                data-z-index="170338.89803846893" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-4 ">
+                                            </path>
+                                            <path fill="rgb(222,138,67)"
+                                                d="M 458.3695016908874 180.5843922169475 L 458.3695016908874 199.14594522309437 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="187940.50905808428" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-3 ">
+                                            </path>
+                                            <path fill="rgb(119,212,100)"
+                                                d="M 741.2215362063845 228.83007899435924 L 741.2215362063845 247.39163200050612 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="187941.49905808424" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-2 ">
+                                            </path>
+                                            <path fill="rgb(222,138,67)"
+                                                d="M 465.29612909477817 201.49342558568821 C 461.85486163477844 194.33310622689555 459.7835324171944 188.0804973881719 458.3695016908874 180.5843922169475 L 458.3695016908874 199.14594522309437 C 459.7835324171944 206.64205039431877 461.85486163477844 212.89465923304243 465.29612909477817 220.0549785918351 Z"
+                                                data-z-index="189838.89803846896" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-3 ">
+                                            </path>
+                                            <path fill="rgb(222,138,67)"
+                                                d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                                data-z-index="189838.89803846896" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-3 ">
+                                            </path>
+                                            <path fill="rgb(42,42,47)"
+                                                d="M 756.8671159909461 123.348781163678 L 756.8671159909461 141.91033416982486 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="215501.8463526948" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-1 ">
+                                            </path>
+                                            <path fill="rgb(119,212,100)"
+                                                d="M 465.29663105500174 201.49447000800075 L 465.29663105500174 220.05602301414763 L 613 184.56155300614688 L 613 166 Z"
+                                                data-z-index="215502.83635269475" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-2 ">
+                                            </path>
+                                            <path fill="rgb(42,42,47)"
+                                                d="M 769 166 C 769 189.50272571774573 760.1539222424834 209.5113743806164 741.2224247514717 228.8291723280403 L 741.2224247514717 247.39072533418718 C 760.1539222424834 228.07292738676327 769 208.0642787238926 769 184.56155300614688 Z"
+                                                data-z-index="217678.63267948967" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-1 ">
+                                            </path>
+                                            <path fill="rgb(42,42,47)"
+                                                d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                                data-z-index="217678.63267948967" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-1 ">
+                                            </path>
+                                            <path fill="rgb(119,212,100)"
+                                                d="M 741.2215362063845 228.83007899435924 C 692.1481920064875 278.9037036086174 594.9596492078674 291.3664122049396 524.1448501612043 256.6663177456909 C 495.4188204703313 242.59022126399864 476.54243020801846 224.8930785941405 465.29663105500174 201.49447000800075 L 465.29663105500174 220.05602301414763 C 493.0195365769241 277.7377765606696 581.622442707606 308.60666127999895 663.1967608745597 289.0036067912537 C 696.2873904777381 281.05162595029367 721.3149296567032 267.70400239148853 741.2215362063845 247.39163200050612 Z"
+                                                data-z-index="300239.39803846896" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-2 ">
+                                            </path>
+                                            <path fill="rgb(119,212,100)"
+                                                d="M 613 166 C 613 166 613 166 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                                data-z-index="300239.39803846896" transform="translate(0,0)"
+                                                class="0 highcharts-3d-side highcharts-point highcharts-color-2 ">
+                                            </path>
+                                            <g data-z-index="31416026.53589793" stroke="#7cb5ec" stroke-width="1"
+                                                stroke-linejoin="round">
+                                                <path fill="rgb(124,181,236)"
+                                                    d="M 612.9682269802236 55.69134442285316 C 677.3602635768839 55.6820707650358 731.968517852589 81.35714351161894 756.8665128044315 123.3477638716775 L 613 166 C 613 166 613 166 613 166 Z"
+                                                    data-z-index="314160.2653589793" transform="translate(0,0)"
+                                                    class="highcharts-point highcharts-color-0 "></path>
+                                            </g>
+                                            <g data-z-index="31416026.53589793" stroke="#434348" stroke-width="1"
+                                                stroke-linejoin="round">
+                                                <path fill="rgb(67,67,72)"
+                                                    d="M 756.8671159909461 123.348781163678 C 778.1380334117752 159.22331918755017 772.5564445678216 196.85577645799836 741.2224247514717 228.8291723280403 L 613 166 C 613 166 613 166 613 166 Z"
+                                                    data-z-index="314160.2653589793" transform="translate(0,0)"
+                                                    class="highcharts-point highcharts-color-1 "></path>
+                                            </g>
+                                            <g data-z-index="31416026.53589793" stroke="#90ed7d" stroke-width="1"
+                                                stroke-linejoin="round">
+                                                <path fill="rgb(144,237,125)"
+                                                    d="M 741.2215362063845 228.83007899435924 C 692.1481920064875 278.9037036086174 594.9596492078674 291.3664122049396 524.1448501612043 256.6663177456909 C 495.4188204703313 242.59022126399864 476.54243020801846 224.8930785941405 465.29663105500174 201.49447000800075 L 613 166 C 613 166 613 166 613 166 C 613 166 613 166 613 166 Z"
+                                                    data-z-index="314160.2653589793" transform="translate(0,0)"
+                                                    class="highcharts-point highcharts-color-2 "></path>
+                                            </g>
+                                            <g data-z-index="31416026.53589793" stroke="#f7a35c" stroke-width="1"
+                                                stroke-linejoin="round">
+                                                <path fill="rgb(247,163,92)"
+                                                    d="M 465.29612909477817 201.49342558568821 C 461.85486163477844 194.33310622689555 459.7835324171944 188.0804973881719 458.3695016908874 180.5843922169475 L 613 166 C 613 166 613 166 613 166 Z"
+                                                    data-z-index="314160.2653589793" transform="translate(0,0)"
+                                                    class="highcharts-point highcharts-color-3 "></path>
+                                            </g>
+                                            <g data-z-index="31416026.53589793" stroke="#8085e9" stroke-width="1"
+                                                stroke-linejoin="round">
+                                                <path fill="rgb(128,133,233)"
+                                                    d="M 458.3692954441662 180.58329881347896 C 455.1207999664115 163.36095595071816 457.0729654443332 148.30069485954516 464.6949808941023 131.7828894557173 L 613 166 C 613 166 613 166 613 166 Z"
+                                                    data-z-index="314160.2653589793" transform="translate(0,0)"
+                                                    class="highcharts-point highcharts-color-4 "></path>
+                                            </g>
+                                            <g data-z-index="31416026.53589793" stroke="#f15c80" stroke-width="1"
+                                                stroke-linejoin="round">
+                                                <path fill="rgb(241,92,128)"
+                                                    d="M 464.6954648045355 131.78184078258124 C 471.34789712370457 117.36572510632608 480.40984549166916 105.93439184691282 494.32997620161495 94.39893348667657 L 613 166 C 613 166 613 166 613 166 Z"
+                                                    data-z-index="314160.2653589793" transform="translate(0,0)"
+                                                    class="highcharts-point highcharts-color-5 "></path>
+                                            </g>
+                                            <g data-z-index="31416026.53589793" stroke="#e4d354" stroke-width="1"
+                                                stroke-linejoin="round">
+                                                <path fill="rgb(228,211,84)"
+                                                    d="M 494.3309887995419 94.39809436647111 C 525.0913526947098 68.90783726152242 565.5488780447556 55.7047203487283 612.9377590616397 55.69135091465948 L 613 166 C 613 166 613 166 613 166 Z"
+                                                    data-z-index="314160.2653589793" transform="translate(0,0)"
+                                                    class="highcharts-point highcharts-color-6 "></path>
+                                            </g>
+                                        </g>
+                                        <g data-z-index="0.1"
+                                            class="highcharts-markers highcharts-series-0 highcharts-pie-series "
+                                            transform="translate(10,53) scale(1 1)"></g>
+                                    </g>
+                                    <g class="highcharts-exporting-group" data-z-index="3">
+                                        <g class="highcharts-button highcharts-contextbutton highcharts-button-normal"
+                                            stroke-linecap="round" transform="translate(1212,10)">
+                                            <title>Chart context menu</title>
+                                            <rect fill="#ffffff" class=" highcharts-button-box" x="0.5" y="0.5"
+                                                width="24" height="22" rx="2" ry="2" stroke="none" stroke-width="1">
+                                            </rect>
+                                            <path fill="#666666"
+                                                d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5"
+                                                class="highcharts-button-symbol" data-z-index="1" stroke="#666666"
+                                                stroke-width="3"></path><text x="0" data-z-index="1"
+                                                style="font-weight:normal;color:#333333;cursor:pointer;fill:#333333;"
+                                                y="12"></text>
+                                        </g>
+                                    </g><text x="623" text-anchor="middle" class="highcharts-title" data-z-index="4"
+                                        style="color:#333333;font-size:18px;fill:#333333;" y="24">
+                                        <tspan>Indent Requested Department 2019-20</tspan>
+                                    </text><text x="623" text-anchor="middle" class="highcharts-subtitle"
+                                        data-z-index="4" style="color:#666666;fill:#666666;" y="52"></text>
+                                    <g data-z-index="6"
+                                        class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker "
+                                        transform="translate(10,53) scale(1 1)" opacity="1" style="cursor:pointer;">
+                                        <path fill="none" class="highcharts-data-label-connector highcharts-color-0"
+                                            stroke="#7cb5ec" stroke-width="1"
+                                            d="M 762.7143168066219 49.15066747647782 C 757.7143168066219 49.15066747647782 706.0050869892734 64.1407357934255 702.6834767396565 69.13742523240808 L 699.3618664900396 74.13411467139065">
+                                        </path>
+                                        <path fill="none" class="highcharts-data-label-connector highcharts-color-1"
+                                            stroke="#434348" stroke-width="1"
+                                            d="M 803.429285416516 180.5595367343974 C 798.429285416516 180.5595367343974 780.0907232524412 178.6893177186623 774.1231974219969 178.06591138008392 L 768.1556715915526 177.44250504150554">
+                                        </path>
+                                        <path fill="none" class="highcharts-data-label-connector highcharts-color-2"
+                                            stroke="#90ed7d" stroke-width="1"
+                                            d="M 484.36543898882815 304.9622082566869 C 489.36543898882815 304.9622082566869 589.7588606728992 287.13528221564695 590.5889013631528 281.19297353530027 L 591.4189420534063 275.2506648549536">
+                                        </path>
+                                        <path fill="none" class="highcharts-data-label-connector highcharts-color-3"
+                                            stroke="#f7a35c" stroke-width="1"
+                                            d="M 424.7785527010193 198.02969324965264 C 429.7785527010193 198.02969324965264 449.43390542838506 193.9215886480776 455.2755516630856 192.5522204475526 L 461.1171978977861 191.1828522470276">
+                                        </path>
+                                        <path fill="none" class="highcharts-data-label-connector highcharts-color-4"
+                                            stroke="#8085e9" stroke-width="1"
+                                            d="M 422.4422905901116 153.18062097621709 C 427.4422905901116 153.18062097621709 445.7023498796977 154.82482321206825 451.6772659554228 155.37289062401865 L 457.6521820311479 155.92095803596905">
+                                        </path>
+                                        <path fill="none" class="highcharts-data-label-connector highcharts-color-5"
+                                            stroke="#f15c80" stroke-width="1"
+                                            d="M 435.12004943239015 97.38132403098427 C 440.12004943239015 97.38132403098427 466.4595258031515 106.1839358882413 471.69311416732467 109.11813984066029 L 476.9267025314978 112.05234379307929">
+                                        </path>
+                                        <path fill="none" class="highcharts-data-label-connector highcharts-color-6"
+                                            stroke="#e4d354" stroke-width="1"
+                                            d="M 472.4967294627238 38.58389554808336 C 477.4967294627238 38.58389554808336 542.6411033884409 54.929283987182785 545.153921124568 60.37774680021593 L 547.6667388606951 65.82620961324908">
+                                        </path>
+                                        <g class="highcharts-label highcharts-data-label highcharts-data-label-color-0 "
+                                            data-z-index="1" transform="translate(768,39)"><text x="5" data-z-index="1"
+                                                style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                                y="16">
+                                                <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF"
+                                                    stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+                                                    style="">Chamoli</tspan>
+                                                <tspan x="5" y="16">Chamoli</tspan>
+                                            </text></g>
+                                        <g class="highcharts-label highcharts-data-label highcharts-data-label-color-1 "
+                                            data-z-index="1" transform="translate(808,171)"><text x="5" data-z-index="1"
+                                                style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                                y="16">
+                                                <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF"
+                                                    stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+                                                    style="">Champawat</tspan>
+                                                <tspan x="5" y="16">Champawat</tspan>
+                                            </text></g>
+                                        <g class="highcharts-label highcharts-data-label highcharts-data-label-color-2 "
+                                            data-z-index="1" transform="translate(417,295)"><text x="5" data-z-index="1"
+                                                style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                                y="16">
+                                                <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF"
+                                                    stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+                                                    style="">Dehradun</tspan>
+                                                <tspan x="5" y="16">Dehradun</tspan>
+                                            </text></g>
+                                        <g class="highcharts-label highcharts-data-label highcharts-data-label-color-3 "
+                                            data-z-index="1" transform="translate(341,188)"><text x="5" data-z-index="1"
+                                                style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                                y="16">
+                                                <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF"
+                                                    stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+                                                    style="">SellCounter1</tspan>
+                                                <tspan x="5" y="16">SellCounter1</tspan>
+                                            </text></g>
+                                        <g class="highcharts-label highcharts-data-label highcharts-data-label-color-4 "
+                                            data-z-index="1" transform="translate(344,143)"><text x="5" data-z-index="1"
+                                                style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                                y="16">
+                                                <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF"
+                                                    stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+                                                    style="">SellCounter</tspan>
+                                                <tspan x="5" y="16">SellCounter</tspan>
+                                            </text></g>
+                                        <g class="highcharts-label highcharts-data-label highcharts-data-label-color-5 "
+                                            data-z-index="1" transform="translate(344,87)"><text x="5" data-z-index="1"
+                                                style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                                y="16">
+                                                <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF"
+                                                    stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+                                                    style="">Tehri Garhwal</tspan>
+                                                <tspan x="5" y="16">Tehri Garhwal</tspan>
+                                            </text></g>
+                                        <g class="highcharts-label highcharts-data-label highcharts-data-label-color-6 "
+                                            data-z-index="1" transform="translate(417,29)"><text x="5" data-z-index="1"
+                                                style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                                y="16">
+                                                <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF"
+                                                    stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+                                                    style="">Nainital</tspan>
+                                                <tspan x="5" y="16">Nainital</tspan>
+                                            </text></g>
+                                    </g>
+                                    <g class="highcharts-legend" data-z-index="7">
+                                        <rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0"
+                                            width="8" height="8" visibility="hidden"></rect>
+                                        <g data-z-index="1">
+                                            <g></g>
+                                        </g>
+                                    </g><text x="1236" class="highcharts-credits" text-anchor="end" data-z-index="8"
+                                        style="cursor: pointer; color: rgb(153, 153, 153); font-size: 9px; fill: rgb(153, 153, 153); display: none;"
+                                        y="395">Highcharts.com</text>
+                                    <g class="highcharts-label highcharts-tooltip highcharts-color-5"
+                                        style="pointer-events:none;white-space:nowrap;" data-z-index="8"
+                                        transform="translate(294,93)" opacity="0.9381533400219317" visibility="visible">
+                                        <path fill="none"
+                                            class="highcharts-label-box highcharts-tooltip-box highcharts-shadow"
+                                            d="M 3.5 0.5 L 129.5 0.5 C 132.5 0.5 132.5 0.5 132.5 3.5 L 132.5 45.5 C 132.5 48.5 132.5 48.5 129.5 48.5 L 3.5 48.5 C 0.5 48.5 0.5 48.5 0.5 45.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                            stroke="#000000" stroke-opacity="0.049999999999999996" stroke-width="5"
+                                            transform="translate(1, 1)"></path>
+                                        <path fill="none"
+                                            class="highcharts-label-box highcharts-tooltip-box highcharts-shadow"
+                                            d="M 3.5 0.5 L 129.5 0.5 C 132.5 0.5 132.5 0.5 132.5 3.5 L 132.5 45.5 C 132.5 48.5 132.5 48.5 129.5 48.5 L 3.5 48.5 C 0.5 48.5 0.5 48.5 0.5 45.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                            stroke="#000000" stroke-opacity="0.09999999999999999" stroke-width="3"
+                                            transform="translate(1, 1)"></path>
+                                        <path fill="none"
+                                            class="highcharts-label-box highcharts-tooltip-box highcharts-shadow"
+                                            d="M 3.5 0.5 L 129.5 0.5 C 132.5 0.5 132.5 0.5 132.5 3.5 L 132.5 45.5 C 132.5 48.5 132.5 48.5 129.5 48.5 L 3.5 48.5 C 0.5 48.5 0.5 48.5 0.5 45.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                            stroke="#000000" stroke-opacity="0.15" stroke-width="1"
+                                            transform="translate(1, 1)"></path>
+                                        <path fill="rgba(247,247,247,0.85)"
+                                            class="highcharts-label-box highcharts-tooltip-box"
+                                            d="M 3.5 0.5 L 129.5 0.5 C 132.5 0.5 132.5 0.5 132.5 3.5 L 132.5 45.5 C 132.5 48.5 132.5 48.5 129.5 48.5 L 3.5 48.5 C 0.5 48.5 0.5 48.5 0.5 45.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+                                            stroke="#f15c80" stroke-width="1"></path><text x="8" data-z-index="1"
+                                            style="font-size:12px;color:#333333;cursor:default;fill:#333333;" y="20">
+                                            <tspan style="font-size: 10px">Tehri Garhwal</tspan>
+                                            <tspan x="8" dy="15">Create Indent: </tspan>
+                                            <tspan style="font-weight:bold" dx="0">6.2%</tspan>
+                                        </text>
+                                    </g>
+                                    <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-top"
+                                        data-z-index="1000">
+                                        <path fill="none"
+                                            d="M 28.133125074972213 70.33930773238774 L 1216.898036366518 70.33930773238774 L 1234.591067115744 137.16414006362726 L 10.411231306579452 137.16414006362726 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 11.408932884256046 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1217.0681957986335 70.98198312711611 L 28.931804201366504 70.98198312711611 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 28.133125074972213 70.33930773238774 L 10.411231306579452 137.16414006362726 L 11.408932884256046 137.16414006362726 L 28.931804201366504 70.98198312711611 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1234.591067115744 137.16414006362726 L 1216.898036366518 70.33930773238774 L 1217.0681957986335 70.98198312711611 L 1234.591067115744 137.16414006362726 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 10.411231306579452 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1234.591067115744 137.16414006362726 L 11.408932884256046 137.16414006362726 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1216.898036366518 70.33930773238774 L 28.133125074972213 70.33930773238774 L 28.931804201366504 70.98198312711611 L 1217.0681957986335 70.98198312711611 Z"
+                                            visibility="hidden"></path>
+                                    </g>
+                                    <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-front"
+                                        data-z-index="1000">
+                                        <path fill="none"
+                                            d="M 65.20001978658263 358.39745966832993 L 1179.8915111902684 358.39745966832993 L 1180.0411229362498 357.7923523204669 L 65.95887706375004 357.7923523204669 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1234.591067115744 137.16414006362726 L 10.411231306579452 137.16414006362726 L 11.408932884256046 137.16414006362726 L 1234.591067115744 137.16414006362726 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 10.411231306579452 137.16414006362726 L 65.20001978658263 358.39745966832993 L 65.95887706375004 357.7923523204669 L 11.408932884256046 137.16414006362726 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1179.8915111902684 358.39745966832993 L 1234.591067115744 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1180.0411229362498 357.7923523204669 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1234.591067115744 137.16414006362726 L 11.408932884256046 137.16414006362726 L 65.95887706375004 357.7923523204669 L 1180.0411229362498 357.7923523204669 Z"
+                                            visibility="hidden"></path>
+                                        <path fill="none"
+                                            d="M 1179.8915111902684 358.39745966832993 L 65.20001978658263 358.39745966832993 L 10.411231306579452 137.16414006362726 L 1234.591067115744 137.16414006362726 Z"
+                                            visibility="hidden"></path>
+                                    </g>
+                                </svg>
+                                <div class="highcharts-contextmenu"
+                                    style="position: absolute; z-index: 1000; padding: 24px; pointer-events: auto; display: none; right: -14px; top: 8px;">
+                                    <div class="highcharts-menu"
+                                        style="box-shadow: rgb(136, 136, 136) 3px 3px 10px; border: 1px solid rgb(153, 153, 153); background: rgb(255, 255, 255); padding: 5px 0px;">
+                                        <div class="highcharts-menu-item"
+                                            style="cursor: pointer; padding: 0.5em 1em; color: rgb(51, 51, 51); background: none; font-size: 11px; transition: background 250ms ease 0s, color 250ms ease 0s;">
+                                            Print chart</div>
+                                        <hr>
+                                        <div class="highcharts-menu-item"
+                                            style="cursor: pointer; padding: 0.5em 1em; color: rgb(51, 51, 51); background: none; font-size: 11px; transition: background 250ms ease 0s, color 250ms ease 0s;">
+                                            Download PNG image</div>
+                                        <div class="highcharts-menu-item"
+                                            style="cursor: pointer; padding: 0.5em 1em; color: rgb(51, 51, 51); background: none; font-size: 11px; transition: background 250ms ease 0s, color 250ms ease 0s;">
+                                            Download JPEG image</div>
+                                        <div class="highcharts-menu-item"
+                                            style="cursor: pointer; padding: 0.5em 1em; color: rgb(51, 51, 51); background: none; font-size: 11px; transition: background 250ms ease 0s, color 250ms ease 0s;">
+                                            Download PDF document</div>
+                                        <div class="highcharts-menu-item"
+                                            style="cursor: pointer; padding: 0.5em 1em; color: rgb(51, 51, 51); background: none; font-size: 11px; transition: background 250ms ease 0s, color 250ms ease 0s;">
+                                            Download SVG vector image</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-10">
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/Department">
+                                </a>
+                                <div class="panel"><a href="/Department">
+
+                                    </a>
+                                    <div class="panel-content widget-info"><a href="/Department">
+                                        </a>
+                                        <div class="row"><a href="/Department">
+                                                <div class="left">
+                                                    <i class="icon-users bg-orange"></i>
+                                                </div>
+                                            </a>
+                                            <div class="right"><a href="/Department">
+                                                </a>
+                                                <p class="number countup" data-from="0" data-to="66">66</p>
+                                                <p class="text">Total Department</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/User">
+                                    <div class="panel">
+
+
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="icon-users bg-yellow"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p class="number countup" data-from="0" data-to="14">14</p>
+                                                    <p class="text">Total User</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/Vendor">
+                                    <div class="panel">
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="icon-users bg-orange"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p class="number countup" data-from="0" data-to="138">138</p>
+                                                    <p class="text">Total Vendors</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/Category">
+                                    <div class="panel">
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="fa fa-shopping-cart bg-blue"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p class="number countup" data-from="0" data-to="18">18</p>
+                                                    <p class="text">Total Category</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/Item">
+                                    <div class="panel">
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="icon-basket bg-blue-dark"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p class="number countup" data-from="0" data-to="3007">3,007</p>
+                                                    <p class="text">Total Items</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/Indent/Request">
+                                    <div class="panel">
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="fa fa-envelope-o bg-purple"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;"
+                                                        data-from="0" data-to="226">226</p>
+                                                    <p class="text">Total Indent</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/PurchaseOrder">
+                                    <div class="panel">
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="icon-calendar bg-blue"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;"
+                                                        data-from="0" data-to="291">291</p>
+                                                    <p class="text">Total PO</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/GRN">
+                                    <div class="panel">
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="icon-calendar bg-blue"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p data-from="0" data-to="343"
+                                                        style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;">
+
+
+
+                                                        343
+
+                                                    </p>
+                                                    <p class="text">Total GRN</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="/IssueNote">
+                                    <div class="panel">
+                                        <div class="panel-content widget-info">
+                                            <div class="row">
+                                                <div class="left">
+                                                    <i class="icon-bulb bg-green"></i>
+                                                </div>
+                                                <div class="right">
+                                                    <p style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;"
+                                                        data-from="0" data-to="350">350</p>
+                                                    <p class="text">Total Issue Note</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Ref web http://www.c-sharpcorner.com/UploadFile/1f3f2a/charting-in-mvc/ -->
+                <script>
+                    $(function () {
+                        $.ajax({
+                            url: 'Dashbord/Chart1',
+                            dataType: "json",
+                            type: "GET",
+                            contentType: 'application/json; charset=utf-8',
+                            async: false,
+                            processData: false,
+                            cache: false,
+                            delay: 15,
+                            success: function (data) {
+                                // alert(data);  
+                                var series = new Array();
+                                for (var i in data) {
+                                    var serie = new Array(data[i].Value, data[i].Item);
+                                    series.push(serie);
+                                }
+                                DrawPieChart(series);
+                                $('.highcharts-credits').css('display', 'none');
+
+                            },
+                            error: function (xhr) {
+                                alert('error');
+                            }
+                        });
+                    });
+
+                    function DrawPieChart(series) {
+                        $('#container').highcharts({
+
+                            chart: {
+                                type: 'pie',
+                                options3d: {
+                                    enabled: true,
+                                    alpha: 45,
+                                    beta: 0
+                                }
+                            },
+                            title: {
+                                text: 'Indent Requested Department 2019-20'
+                            },
+                            tooltip: {
+                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                            },
+                            plotOptions: {
+                                pie: {
+                                    allowPointSelect: true,
+                                    cursor: 'pointer',
+                                    depth: 35,
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '{point.name}'
+                                    }
+                                }
+                            },
+                            series: [{
+                                type: 'pie',
+                                name: 'Create Indent',
+                                data: series
+                            }]
+                        });
+                    }
+
+                </script>
+
+
+
+                <div class="modal fade in" id="colored-header1" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-backdrop fade in" style="height: 100%;"></div>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                                        class="icons-office-52"></i></button>
+                                <h4>Unit Conversion</h4>
+                            </div>
+                            <div class="modal-body" id="units">
+                                <p>
+
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="footer">
+                    <div class="copyright">
+                        <p class="pull-left sm-pull-reset">
+                            <span>Copyright <span class="copyright">©</span> 2017 </span>
+                            <span>Alight Consultants Pvt. Ltd.&nbsp;</span>
+                            <span>All rights reserved. </span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="/assets/plugins/datatables/dynamic/jquery.dataTables.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.tableTools.js"></script>
+    <script src="../assets/global/plugins/select2/select2.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap-tags-input/bootstrap-tagsinput.min.js"></script>
+    <!-- Select Inputs -->
+    <!-- END PAGE SCRIPTS -->
+    <script src="../assets/global/plugins/noty/jquery.noty.packaged.min.js"></script> <!-- Notifications -->
+    <script src="../assets/global/js/pages/notifications.js"></script>
+
+    <script src="/Scripts/Indent/IndentRequest.js"></script>
+    <script src="../assets/global/plugins/bootstrap-loading/lada.min.js"></script> <!-- Buttons Loading State -->
+    <script src="/Scripts/General/custom.js"></script>
+
+
+    <div class="row">
+        <div class="col-md-12 portlets ui-sortable">
+            <div class="panel">
+                <div class="panel-header panel-controls" style="color: #fff;">
+                    <h2 style="color: #fff;">Indent <strong>Request</strong></h2>
+                    <div class="control-btn"><a href="#" class="panel-reload hidden"><i class="icon-reload"></i></a><a
+                            class="hidden" id="dropdownMenu1" data-toggle="dropdown"><i class="icon-settings"></i></a>
+                        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul><a href="#" class="panel-popout hidden tt" title="Pop Out/In"><i
+                                class="icons-office-58"></i></a><a href="#" class="panel-maximize hidden"><i
+                                class="icon-size-fullscreen"></i></a><a href="#" class="panel-toggle"><i
+                                class="fa fa-angle-down"></i></a><a href="#" class="panel-close"><i
+                                class="icon-trash"></i></a>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <form role="form">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>DepartMent</label>
+                                    <div class="select2-container form-control" id="s2id_ddlDepartment"><a
+                                            href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                class="select2-chosen" id="select2-chosen-1">Select
+                                                Department</span><abbr class="select2-search-choice-close"></abbr> <span
+                                                class="select2-arrow" role="presentation"><b
+                                                    role="presentation"></b></span></a><label for="s2id_autogen1"
+                                            class="select2-offscreen"></label><input
+                                            class="select2-focusser select2-offscreen" type="text" aria-haspopup="true"
+                                            role="button" aria-labelledby="select2-chosen-1" id="s2id_autogen1">
+                                        <div class="select2-drop select2-display-none select2-with-searchbox">
+                                            <div class="select2-search"> <label for="s2id_autogen1_search"
+                                                    class="select2-offscreen"></label> <input type="text"
+                                                    autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                    spellcheck="false" class="select2-input" role="combobox"
+                                                    aria-expanded="true" aria-autocomplete="list"
+                                                    aria-owns="select2-results-1" id="s2id_autogen1_search"
+                                                    placeholder=""> </div>
+                                            <ul class="select2-results" role="listbox" id="select2-results-1"> </ul>
+                                        </div>
+                                    </div><select class="form-control" data-search="true" data-val="true"
+                                        data-val-number="The field Indent_DeparmentID must be a number."
+                                        data-val-required="The Indent_DeparmentID field is required." id="ddlDepartment"
+                                        name="Indent_DeparmentID" tabindex="-1" title="" style="display: none;">
+                                        <option value="-1">Select Department</option>
+                                        <option value="1">SuperAdmin</option>
+                                        <option value="3">Chamoli</option>
+                                        <option value="12">Champawat</option>
+                                        <option value="21">Dehradun</option>
+                                        <option value="35">SellCounter1</option>
+                                        <option value="39">SellCounter</option>
+                                        <option value="41">Tehri Garhwal</option>
+                                        <option value="49">Nainital</option>
+                                        <option value="64">Chamoli</option>
+                                        <option value="65">Pithoragarh</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Sub-DepartMent</label>
+                                    <div class="select2-container form-control" id="s2id_ddlsubdep"><a
+                                            href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                class="select2-chosen" id="select2-chosen-2">Select
+                                                Sub-Department</span><abbr class="select2-search-choice-close"></abbr>
+                                            <span class="select2-arrow" role="presentation"><b
+                                                    role="presentation"></b></span></a><label for="s2id_autogen2"
+                                            class="select2-offscreen"></label><input
+                                            class="select2-focusser select2-offscreen" type="text" aria-haspopup="true"
+                                            role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2">
+                                        <div class="select2-drop select2-display-none">
+                                            <div class="select2-search select2-search-hidden select2-offscreen"> <label
+                                                    for="s2id_autogen2_search" class="select2-offscreen"></label> <input
+                                                    type="text" autocomplete="off" autocorrect="off"
+                                                    autocapitalize="off" spellcheck="false" class="select2-input"
+                                                    role="combobox" aria-expanded="true" aria-autocomplete="list"
+                                                    aria-owns="select2-results-2" id="s2id_autogen2_search"
+                                                    placeholder=""> </div>
+                                            <ul class="select2-results" role="listbox" id="select2-results-2"> </ul>
+                                        </div>
+                                    </div><select class="form-control" data-val="true"
+                                        data-val-number="The field Indent_SubDeparmentID must be a number."
+                                        data-val-required="The Indent_SubDeparmentID field is required." id="ddlsubdep"
+                                        name="Indent_SubDeparmentID" tabindex="-1" title="" style="display: none;">
+                                        <option value="-1">Select Sub-Department</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <hr>
+                        <div class="row m-t-10">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Item Category</label>
+                                    <div>
+                                        <div class="select2-container form-control" id="s2id_ddlCategory"><a
+                                                href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                    class="select2-chosen" id="select2-chosen-3">Select
+                                                    Category</span><abbr class="select2-search-choice-close"></abbr>
+                                                <span class="select2-arrow" role="presentation"><b
+                                                        role="presentation"></b></span></a><label for="s2id_autogen3"
+                                                class="select2-offscreen"></label><input
+                                                class="select2-focusser select2-offscreen" type="text"
+                                                aria-haspopup="true" role="button" aria-labelledby="select2-chosen-3"
+                                                id="s2id_autogen3">
+                                            <div class="select2-drop select2-display-none select2-with-searchbox">
+                                                <div class="select2-search"> <label for="s2id_autogen3_search"
+                                                        class="select2-offscreen"></label> <input type="text"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                        spellcheck="false" class="select2-input" role="combobox"
+                                                        aria-expanded="true" aria-autocomplete="list"
+                                                        aria-owns="select2-results-3" id="s2id_autogen3_search"
+                                                        placeholder=""> </div>
+                                                <ul class="select2-results" role="listbox" id="select2-results-3"> </ul>
+                                            </div>
+                                        </div><select class="form-control" data-search="true" data-val="true"
+                                            data-val-number="The field CategoryID must be a number."
+                                            data-val-required="The CategoryID field is required." id="ddlCategory"
+                                            name="CategoryID" tabindex="-1" title="" style="display: none;">
+                                            <option value="-1">Select Category</option>
+                                            <option value="1">Stationery</option>
+                                            <option value="2">Admin</option>
+                                            <option value="3">ELECTRIC</option>
+                                            <option value="4">CIVIL</option>
+                                            <option value="5">Furniture</option>
+                                            <option value="6">Gausala</option>
+                                            <option value="7">Guest Hosue</option>
+                                            <option value="8">General </option>
+                                            <option value="9">INFORMATION TECHNOLOGY</option>
+                                            <option value="10">Medical</option>
+                                            <option value="11">Sanitation</option>
+                                            <option value="12">TEMPLE</option>
+                                            <option value="13">Sales</option>
+                                            <option value="14">Stores</option>
+                                            <option value="15">Library</option>
+                                            <option value="16">Transport</option>
+                                            <option value="17">PHISIOTHERAPY</option>
+                                            <option value="18">Parking</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Items</label>
+                                    <div class="select2-container form-control" id="s2id_ddlitem"><a
+                                            href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                                class="select2-chosen" id="select2-chosen-4">&nbsp;</span><abbr
+                                                class="select2-search-choice-close"></abbr> <span class="select2-arrow"
+                                                role="presentation"><b role="presentation"></b></span></a><label
+                                            for="s2id_autogen4" class="select2-offscreen"></label><input
+                                            class="select2-focusser select2-offscreen" type="text" aria-haspopup="true"
+                                            role="button" aria-labelledby="select2-chosen-4" id="s2id_autogen4">
+                                        <div class="select2-drop select2-display-none select2-with-searchbox">
+                                            <div class="select2-search"> <label for="s2id_autogen4_search"
+                                                    class="select2-offscreen"></label> <input type="text"
+                                                    autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                    spellcheck="false" class="select2-input" role="combobox"
+                                                    aria-expanded="true" aria-autocomplete="list"
+                                                    aria-owns="select2-results-4" id="s2id_autogen4_search"
+                                                    placeholder=""> </div>
+                                            <ul class="select2-results" role="listbox" id="select2-results-4"> </ul>
+                                        </div>
+                                    </div><select class="form-control" data-search="true" data-val="true"
+                                        data-val-number="The field ItemID must be a number."
+                                        data-val-required="The ItemID field is required." id="ddlitem" name="ItemID"
+                                        tabindex="-1" title="" style="display: none;"></select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    <span id="spn"
+                                        style="float: right; color: red; display: none;"><label>&nbsp;&nbsp;&nbsp;
+                                            Instock:&nbsp;</label><span id="spn1">0</span> </span>
+                                    <div>
+
+                                        <input type="number" class="form-control" data-val="true"
+                                            data-val-number="The field Quantity must be a number."
+                                            data-val-required="The Quantity field is required." id="txtQuantity"
+                                            maxlength="20" min="0" name="Quantity" placeholder="Quantity" value="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Unit (UOM)</label>
+                                    <div>
+                                        <input class="form-control" disabled="True" id="txtUnit" maxlength="20"
+                                            name="Unit" placeholder="Unit" type="text" value="">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Remarks</label>
+                                <textarea rows="2" id="message" class="form-control form-white"></textarea>
+                            </div>
+                        </div>
+                        <div class="row m-t-10">
+
+                            <div class="col-md-3">
+
+                                <button type="button" id="btnadditem" class="btn btn-block btn-dark ladda-button"
+                                    data-style="zoom-in"><span class="ladda-label"><i class="fa fa-plus"></i>Add
+                                        Item</span><span class="ladda-spinner"></span></button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row m-t-10" id="addbtn" style="display:none">
+                            <div class="col-md-3">
+                                <label>Depart. Req.No</label>
+                                <input type="number" class="form-control form-white" id="deprequestNo" value="0">
+                            </div>
+                            <div class="col-md-3">
+                                <label>Priority</label>
+                                <div class="select2-container form-control form-white" id="s2id_ddlPriority"><a
+                                        href="javascript:void(0)" class="select2-choice" tabindex="-1"> <span
+                                            class="select2-chosen" id="select2-chosen-5">General</span><abbr
+                                            class="select2-search-choice-close"></abbr> <span class="select2-arrow"
+                                            role="presentation"><b role="presentation"></b></span></a><label
+                                        for="s2id_autogen5" class="select2-offscreen"></label><input
+                                        class="select2-focusser select2-offscreen" type="text" aria-haspopup="true"
+                                        role="button" aria-labelledby="select2-chosen-5" id="s2id_autogen5">
+                                    <div class="select2-drop select2-display-none form-white">
+                                        <div class="select2-search select2-search-hidden select2-offscreen"> <label
+                                                for="s2id_autogen5_search" class="select2-offscreen"></label> <input
+                                                type="text" autocomplete="off" autocorrect="off" autocapitalize="off"
+                                                spellcheck="false" class="select2-input" role="combobox"
+                                                aria-expanded="true" aria-autocomplete="list"
+                                                aria-owns="select2-results-5" id="s2id_autogen5_search" placeholder="">
+                                        </div>
+                                        <ul class="select2-results" role="listbox" id="select2-results-5"> </ul>
+                                    </div>
+                                </div><select class="form-control form-white" data-style="white" id="ddlPriority"
+                                    tabindex="-1" title="" style="display: none;">
+                                    <option value="Urgent">Urgent</option>
+                                    <option value="General" selected="selected">General</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label></label>
+                                <button type="button" id="btnsubmitIdent" class="btn btn-block btn-danger ladda-button"
+                                    data-style="zoom-in"><span class="ladda-label"><i
+                                            class="icons-office-51"></i>Process To Indent</span><span
+                                        class="ladda-spinner"></span></button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 portlets ui-sortable">
+            <div class="panel">
+
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-lg-12 portlets ui-sortable">
+                            <div class="panel">
+                                <div class="panel-content pagination2 table-responsive">
+                                    <div id="ItemRate_wrapper" class="dataTables_wrapper form-inline no-footer">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="dataTables_length" id="ItemRate_length"><label>
+                                                        <div class="select2-container form-control" id="s2id_autogen6">
+                                                            <a href="javascript:void(0)" class="select2-choice"
+                                                                tabindex="-1"> <span class="select2-chosen"
+                                                                    id="select2-chosen-7">100</span><abbr
+                                                                    class="select2-search-choice-close"></abbr> <span
+                                                                    class="select2-arrow" role="presentation"><b
+                                                                        role="presentation"></b></span></a><label
+                                                                for="s2id_autogen7"
+                                                                class="select2-offscreen"></label><input
+                                                                class="select2-focusser select2-offscreen" type="text"
+                                                                aria-haspopup="true" role="button"
+                                                                aria-labelledby="select2-chosen-7" id="s2id_autogen7">
+                                                            <div class="select2-drop select2-display-none">
+                                                                <div
+                                                                    class="select2-search select2-search-hidden select2-offscreen">
+                                                                    <label for="s2id_autogen7_search"
+                                                                        class="select2-offscreen"></label> <input
+                                                                        type="text" autocomplete="off" autocorrect="off"
+                                                                        autocapitalize="off" spellcheck="false"
+                                                                        class="select2-input" role="combobox"
+                                                                        aria-expanded="true" aria-autocomplete="list"
+                                                                        aria-owns="select2-results-7"
+                                                                        id="s2id_autogen7_search" placeholder="">
+                                                                </div>
+                                                                <ul class="select2-results" role="listbox"
+                                                                    id="select2-results-7"> </ul>
+                                                            </div>
+                                                        </div><select name="ItemRate_length" aria-controls="ItemRate"
+                                                            class="form-control" tabindex="-1" title=""
+                                                            style="display: none;">
+                                                            <option value="10">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>
+                                                    </label></div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div id="ItemRate_filter" class="dataTables_filter"><label>Search:<input
+                                                            type="search" class="form-control"
+                                                            aria-controls="ItemRate"></label></div>
+                                            </div>
+                                        </div>
+                                        <table id="ItemRate" class="table table-hover dataTable no-footer" role="grid"
+                                            aria-describedby="ItemRate_info" style="width: 1106px;">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_desc" rowspan="1" colspan="1"
+                                                        style="width: 221px;" aria-label="Category">Category</th>
+                                                    <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                        style="width: 221px;" aria-label="ItemName">ItemName</th>
+                                                    <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                        style="width: 54px;" aria-label="Quanity">Quanity</th>
+                                                    <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                        style="width: 37px;" aria-label="Unit">Unit</th>
+                                                    <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                        style="width: 275px;" aria-label="Remarks">Remarks</th>
+                                                    <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                        style="width: 189px;" aria-label="Action">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="odd">
+                                                    <td valign="top" colspan="6" class="dataTables_empty">No matching
+                                                        records found</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="dataTables_info" id="ItemRate_info" role="status"
+                                                    aria-live="polite">Showing 0 to 0 of 0 entries (filtered from NaN
+                                                    total entries)</div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="dataTables_paginate paging_simple_numbers"
+                                                    id="ItemRate_paginate">
+                                                    <ul class="pagination">
+                                                        <li class="paginate_button previous disabled"
+                                                            aria-controls="ItemRate" tabindex="0"
+                                                            id="ItemRate_previous"><a href="#">Previous</a></li>
+                                                        <li class="paginate_button next disabled"
+                                                            aria-controls="ItemRate" tabindex="0" id="ItemRate_next"><a
+                                                                href="#">Next</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row" style="display:none">
+            <button type="button" id="show" class="btn btn-block btn-dark ladda-button" data-style="zoom-in"><span
+                    class="ladda-label"><i class="fa fa-plus"></i>Add Item</span><span
+                    class="ladda-spinner"></span></button>
+        </div>
+        <div class="row" style="display:none">
+            <div class="col-md-12" id="preview">
+                <p class=" p-t-10 border-top"><strong>Notification preview</strong></p>
+                <div id="basic-preview" class="preview active">
+                    <div class="alert alert-success media fade in">
+
+                        <p><strong>Item Added</strong> successfully </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="modal fade in" id="colored-header" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-backdrop fade in" style="height: 100%;"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                                class="icons-office-52"></i></button>
+                        <h4 class="modal-title"><strong>Edit</strong> Item</h4>
+                    </div>
+                    <div class="modal-body" id="bodylogs">
+                        <p>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade in" id="colored-header1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-backdrop fade in" style="height: 100%;"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="icons-office-52"></i></button>
+                    <h4>Unit Conversion</h4>
+                </div>
+                <div class="modal-body" id="units">
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="footer">
+        <div class="copyright">
+            <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2017 </span>
+                <span>Alight Consultants Pvt. Ltd.&nbsp;</span>
+                <span>All rights reserved. </span>
+            </p>
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <!-- END PAGE SCRIPT -->
+    <script src="./assets/global/plugins/countup/countUp.min.js"></script> <!-- Animated Counter Number -->
+    <!-- END PAGE SCRIPTS -->
+
+    <script src="/Scripts/Common/jquery.min.js"></script>
+    <script src="/Scripts/Common/highcharts.js"></script>
+    <script src="/Scripts/Common/highcharts-3d.js"></script>
+    <script src="/Scripts/Common/exporting.js"></script>
+
+
+    <div class="header">
+        <div class="breadcrumb-wrapper">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="/Dashbord">Dashboard</a>
+                </li>
+                <li class="active">Charts Á Records</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+
+        <h2><strong> || Shree Somnath Trust -Inventory Management ||</strong></h2>
+        <p>
+
+
+
+        </p>
+        <marquee>Inventory Management System.you can Create a Indent,PO,GRN,PRN,Issued Item,Stock Management,Asset
+            managemnet,Inventory Management.User Friendly Resoponsive web application
+        </marquee>
+        <h3 class="m-t-30 m-b-10"><strong>Dashboard</strong></h3>
+
+        <div class="row m-t-10">
+            <div id="container" style="height: 400px; overflow: hidden;" data-highcharts-chart="0">
+                <div id="highcharts-0sbbdnu-0" dir="ltr" class="highcharts-container  highcharts-3d-chart"
+                    style="position: relative; overflow: hidden; width: 1246px; height: 400px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                    <svg version="1.1" class="highcharts-root"
+                        style="font-family: quot Lucida GrandeLucida Sans Unicode, Arial, Helvetica, sans-serif;font-size:12px;"
+                        xmlns="http://www.w3.org/2000/svg" width="1246" height="400" viewBox="0 0 1246 400">
+                        <desc>Created with Highcharts 7.0.3</desc>
+                        <defs>
+                            <clipPath id="highcharts-0sbbdnu-8">
+                                <rect x="0" y="0" width="1246" height="400" fill="none"></rect>
+                            </clipPath>
+                        </defs>
+                        <rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="1246" height="400" rx="0"
+                            ry="0"></rect>
+                        <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-bottom"
+                            data-z-index="-1000">
+                            <path fill="none"
+                                d="M 65.20001978658263 358.39745966832993 L 1179.8915111902684 358.39745966832993 L 1165.1837587455673 291.54859746354225 L 79.93176530215612 291.54859746354225 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 80.53254211021374 291.5865587168677 L 1165.4674578897861 291.5865587168677 L 1180.0411229362498 357.7923523204669 L 65.95887706375004 357.7923523204669 Z"
+                                visibility="visible"></path>
+                            <path fill="none"
+                                d="M 65.20001978658263 358.39745966832993 L 79.93176530215612 291.54859746354225 L 80.53254211021374 291.5865587168677 L 65.95887706375004 357.7923523204669 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1165.1837587455673 291.54859746354225 L 1179.8915111902684 358.39745966832993 L 1180.0411229362498 357.7923523204669 L 1165.4674578897861 291.5865587168677 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1179.8915111902684 358.39745966832993 L 65.20001978658263 358.39745966832993 L 65.95887706375004 357.7923523204669 L 1180.0411229362498 357.7923523204669 Z"
+                                visibility="visible"></path>
+                            <path fill="none"
+                                d="M 79.93176530215612 291.54859746354225 L 1165.1837587455673 291.54859746354225 L 1165.4674578897861 291.5865587168677 L 80.53254211021374 291.5865587168677 Z"
+                                visibility="hidden"></path>
+                        </g>
+                        <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-left"
+                            data-z-index="-1000">
+                            <path fill="none"
+                                d="M 65.20001978658263 358.39745966832993 L 65.95887706375004 357.7923523204669 L 80.53254211021374 291.5865587168677 L 79.93176530215612 291.54859746354225 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 28.133125074972213 70.33930773238774 L 28.931804201366504 70.98198312711611 L 11.408932884256046 137.16414006362726 L 10.411231306579452 137.16414006362726 Z"
+                                visibility="visible"></path>
+                            <path fill="none"
+                                d="M 79.93176530215612 291.54859746354225 L 28.133125074972213 70.33930773238774 L 10.411231306579452 137.16414006362726 L 65.20001978658263 358.39745966832993 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 28.931804201366504 70.98198312711611 L 80.53254211021374 291.5865587168677 L 65.95887706375004 357.7923523204669 L 11.408932884256046 137.16414006362726 Z"
+                                visibility="visible"></path>
+                            <path fill="none"
+                                d="M 65.20001978658263 358.39745966832993 L 10.411231306579452 137.16414006362726 L 11.408932884256046 137.16414006362726 L 65.95887706375004 357.7923523204669 Z"
+                                visibility="visible"></path>
+                            <path fill="none"
+                                d="M 28.133125074972213 70.33930773238774 L 79.93176530215612 291.54859746354225 L 80.53254211021374 291.5865587168677 L 28.931804201366504 70.98198312711611 Z"
+                                visibility="hidden"></path>
+                        </g>
+                        <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-right"
+                            data-z-index="-1000">
+                            <path fill="none"
+                                d="M 1165.1837587455673 291.54859746354225 L 1165.4674578897861 291.5865587168677 L 1180.0411229362498 357.7923523204669 L 1179.8915111902684 358.39745966832993 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1234.591067115744 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1217.0681957986335 70.98198312711611 L 1216.898036366518 70.33930773238774 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1234.591067115744 137.16414006362726 L 1180.0411229362498 357.7923523204669 L 1165.4674578897861 291.5865587168677 L 1217.0681957986335 70.98198312711611 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1179.8915111902684 358.39745966832993 L 1234.591067115744 137.16414006362726 L 1216.898036366518 70.33930773238774 L 1165.1837587455673 291.54859746354225 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1234.591067115744 137.16414006362726 L 1179.8915111902684 358.39745966832993 L 1180.0411229362498 357.7923523204669 L 1234.591067115744 137.16414006362726 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1165.1837587455673 291.54859746354225 L 1216.898036366518 70.33930773238774 L 1217.0681957986335 70.98198312711611 L 1165.4674578897861 291.5865587168677 Z"
+                                visibility="hidden"></path>
+                        </g>
+                        <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-back"
+                            data-z-index="-1000">
+                            <path fill="none"
+                                d="M 1165.1837587455673 291.54859746354225 L 79.93176530215612 291.54859746354225 L 80.53254211021374 291.5865587168677 L 1165.4674578897861 291.5865587168677 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 28.133125074972213 70.33930773238774 L 1216.898036366518 70.33930773238774 L 1217.0681957986335 70.98198312711611 L 28.931804201366504 70.98198312711611 Z"
+                                visibility="visible"></path>
+                            <path fill="none"
+                                d="M 79.93176530215612 291.54859746354225 L 28.133125074972213 70.33930773238774 L 28.931804201366504 70.98198312711611 L 80.53254211021374 291.5865587168677 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1216.898036366518 70.33930773238774 L 1165.1837587455673 291.54859746354225 L 1165.4674578897861 291.5865587168677 L 1217.0681957986335 70.98198312711611 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 28.931804201366504 70.98198312711611 L 1217.0681957986335 70.98198312711611 L 1165.4674578897861 291.5865587168677 L 80.53254211021374 291.5865587168677 Z"
+                                visibility="visible"></path>
+                            <path fill="none"
+                                d="M 79.93176530215612 291.54859746354225 L 1165.1837587455673 291.54859746354225 L 1216.898036366518 70.33930773238774 L 28.133125074972213 70.33930773238774 Z"
+                                visibility="hidden"></path>
+                        </g>
+                        <rect fill="none" class="highcharts-plot-background" x="10" y="53" width="1226" height="332">
+                        </rect>
+                        <rect fill="none" class="highcharts-plot-border" data-z-index="1" x="10" y="53" width="1226"
+                            height="332"></rect>
+                        <g class="highcharts-series-group" data-z-index="3">
+                            <g data-z-index="0.1"
+                                class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker"
+                                transform="translate(10,53) scale(1 1)" style="cursor:pointer;">
+                                <path fill="rgb(99,156,211)"
+                                    d="M 756.8665128044315 123.3477638716775 L 756.8665128044315 141.90931687782438 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="20.163647305236008" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-0"></path>
+                                <path fill="rgb(203,186,59)"
+                                    d="M 494.3309887995419 94.39809436647111 L 494.3309887995419 112.95964737261798 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="39.49905808426557" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-6"></path>
+                                <path fill="rgb(203,186,59)"
+                                    d="M 612.9377590616397 55.69135091465948 L 612.9377590616397 74.25290392080635 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="85574.50905808428" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-6"></path>
+                                <path fill="rgb(216,67,103)"
+                                    d="M 464.6954648045355 131.78184078258124 L 464.6954648045355 150.34339378872812 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="85575.49905808434" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-5"></path>
+                                <path fill="rgb(203,186,59)"
+                                    d="M 494.3309887995419 94.39809436647111 C 525.0913526947098 68.90783726152242 565.5488780447556 55.7047203487283 612.9377590616397 55.69135091465948 L 612.9377590616397 74.25290392080635 C 565.5488780447556 74.26627335487517 525.0913526947098 87.46939026766928 494.3309887995419 112.95964737261798 Z"
+                                    data-z-index="86438.89803846898" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-6"></path>
+                                <path fill="rgb(203,186,59)"
+                                    d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                    data-z-index="86438.89803846898" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-6"></path>
+                                <path fill="rgb(99,156,211)"
+                                    d="M 612.9682269802236 55.69134442285316 L 612.9682269802236 74.25289742900003 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="116204.84635269475" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-0"></path>
+                                <path fill="rgb(42,42,47)"
+                                    d="M 741.2224247514717 228.8291723280403 L 741.2224247514717 247.39072533418718 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="116205.83635269477" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-1"></path>
+                                <path fill="rgb(99,156,211)"
+                                    d="M 612.9682269802236 55.69134442285316 C 677.3602635768839 55.6820707650358 731.968517852589 81.35714351161894 756.8665128044315 123.3477638716775 L 756.8665128044315 141.90931687782438 C 731.968517852589 99.91869651776581 677.3602635768839 74.24362377118267 612.9682269802236 74.25289742900003 Z"
+                                    data-z-index="117378.63267948964" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-0"></path>
+                                <path fill="rgb(99,156,211)"
+                                    d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                    data-z-index="117378.63267948964" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-0"></path>
+                                <path fill="rgb(216,67,103)"
+                                    d="M 494.32997620161495 94.39893348667657 L 494.32997620161495 112.96048649282343 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="124283.50905808428" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-5"></path>
+                                <path fill="rgb(103,108,208)"
+                                    d="M 458.3692954441662 180.58329881347896 L 458.3692954441662 199.14485181962584 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="124284.49905808434" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-4"></path>
+                                <path fill="rgb(216,67,103)"
+                                    d="M 464.6954648045355 131.78184078258124 C 471.34789712370457 117.36572510632608 480.40984549166916 105.93439184691282 494.32997620161495 94.39893348667657 L 494.32997620161495 112.96048649282343 C 480.40984549166916 124.49594485305968 471.34789712370457 135.92727811247295 464.6954648045355 150.34339378872812 Z"
+                                    data-z-index="125538.89803846898" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-5"></path>
+                                <path fill="rgb(216,67,103)"
+                                    d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                    data-z-index="125538.89803846898" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-5"></path>
+                                <path fill="rgb(103,108,208)"
+                                    d="M 464.6949808941023 131.7828894557173 L 464.6949808941023 150.3444424618642 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="168635.50905808425" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-4"></path>
+                                <path fill="rgb(222,138,67)"
+                                    d="M 465.29612909477817 201.49342558568821 L 465.29612909477817 220.0549785918351 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="168636.4990580843" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-3"></path>
+                                <path fill="rgb(103,108,208)"
+                                    d="M 458.3692954441662 180.58329881347896 C 457.40783059992873 175.4859615041491 457 171.14247556809352 457 166 L 457 184.56155300614688 C 457 172.32917734848928 459.32887127747074 161.97343416455283 464.6949808941023 150.3444424618642 L 464.6949808941023 131.7828894557173 C 459.32887127747074 143.41188115840595 457 153.7676243423424 457 166 L 457 184.56155300614688 C 457 189.7040285742404 457.40783059992873 194.04751451029597 458.3692954441662 199.14485181962584 Z"
+                                    data-z-index="170338.89803846893" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-4"></path>
+                                <path fill="rgb(103,108,208)"
+                                    d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                    data-z-index="170338.89803846893" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-4"></path>
+                                <path fill="rgb(222,138,67)"
+                                    d="M 458.3695016908874 180.5843922169475 L 458.3695016908874 199.14594522309437 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="187940.50905808428" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-3"></path>
+                                <path fill="rgb(119,212,100)"
+                                    d="M 741.2215362063845 228.83007899435924 L 741.2215362063845 247.39163200050612 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="187941.49905808424" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-2"></path>
+                                <path fill="rgb(222,138,67)"
+                                    d="M 465.29612909477817 201.49342558568821 C 461.85486163477844 194.33310622689555 459.7835324171944 188.0804973881719 458.3695016908874 180.5843922169475 L 458.3695016908874 199.14594522309437 C 459.7835324171944 206.64205039431877 461.85486163477844 212.89465923304243 465.29612909477817 220.0549785918351 Z"
+                                    data-z-index="189838.89803846896" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-3"></path>
+                                <path fill="rgb(222,138,67)"
+                                    d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                    data-z-index="189838.89803846896" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-3"></path>
+                                <path fill="rgb(42,42,47)"
+                                    d="M 756.8671159909461 123.348781163678 L 756.8671159909461 141.91033416982486 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="215501.8463526948" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-1"></path>
+                                <path fill="rgb(119,212,100)"
+                                    d="M 465.29663105500174 201.49447000800075 L 465.29663105500174 220.05602301414763 L 613 184.56155300614688 L 613 166 Z"
+                                    data-z-index="215502.83635269475" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-2"></path>
+                                <path fill="rgb(42,42,47)"
+                                    d="M 769 166 C 769 189.50272571774573 760.1539222424834 209.5113743806164 741.2224247514717 228.8291723280403 L 741.2224247514717 247.39072533418718 C 760.1539222424834 228.07292738676327 769 208.0642787238926 769 184.56155300614688 Z"
+                                    data-z-index="217678.63267948967" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-1"></path>
+                                <path fill="rgb(42,42,47)"
+                                    d="M 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                    data-z-index="217678.63267948967" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-1"></path>
+                                <path fill="rgb(119,212,100)"
+                                    d="M 741.2215362063845 228.83007899435924 C 692.1481920064875 278.9037036086174 594.9596492078674 291.3664122049396 524.1448501612043 256.6663177456909 C 495.4188204703313 242.59022126399864 476.54243020801846 224.8930785941405 465.29663105500174 201.49447000800075 L 465.29663105500174 220.05602301414763 C 493.0195365769241 277.7377765606696 581.622442707606 308.60666127999895 663.1967608745597 289.0036067912537 C 696.2873904777381 281.05162595029367 721.3149296567032 267.70400239148853 741.2215362063845 247.39163200050612 Z"
+                                    data-z-index="300239.39803846896" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-2"></path>
+                                <path fill="rgb(119,212,100)"
+                                    d="M 613 166 C 613 166 613 166 613 166 C 613 166 613 166 613 166 L 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 C 613 184.56155300614688 613 184.56155300614688 613 184.56155300614688 Z"
+                                    data-z-index="300239.39803846896" transform="translate(0,0)"
+                                    class="0 highcharts-3d-side highcharts-point highcharts-color-2"></path>
+                                <g data-z-index="31416026.53589793" stroke="#7cb5ec" stroke-width="1"
+                                    stroke-linejoin="round">
+                                    <path fill="#7cb5ec"
+                                        d="M 612.9682269802236 55.69134442285316 C 677.3602635768839 55.6820707650358 731.968517852589 81.35714351161894 756.8665128044315 123.3477638716775 L 613 166 C 613 166 613 166 613 166 Z"
+                                        data-z-index="314160.2653589793" transform="translate(0,0)"
+                                        class="highcharts-point highcharts-color-0"></path>
+                                </g>
+                                <g data-z-index="31416026.53589793" stroke="#434348" stroke-width="1"
+                                    stroke-linejoin="round">
+                                    <path fill="#434348"
+                                        d="M 756.8671159909461 123.348781163678 C 778.1380334117752 159.22331918755017 772.5564445678216 196.85577645799836 741.2224247514717 228.8291723280403 L 613 166 C 613 166 613 166 613 166 Z"
+                                        data-z-index="314160.2653589793" transform="translate(0,0)"
+                                        class="highcharts-point highcharts-color-1"></path>
+                                </g>
+                                <g data-z-index="31416026.53589793" stroke="#90ed7d" stroke-width="1"
+                                    stroke-linejoin="round">
+                                    <path fill="#90ed7d"
+                                        d="M 741.2215362063845 228.83007899435924 C 692.1481920064875 278.9037036086174 594.9596492078674 291.3664122049396 524.1448501612043 256.6663177456909 C 495.4188204703313 242.59022126399864 476.54243020801846 224.8930785941405 465.29663105500174 201.49447000800075 L 613 166 C 613 166 613 166 613 166 C 613 166 613 166 613 166 Z"
+                                        data-z-index="314160.2653589793" transform="translate(0,0)"
+                                        class="highcharts-point highcharts-color-2"></path>
+                                </g>
+                                <g data-z-index="31416026.53589793" stroke="#f7a35c" stroke-width="1"
+                                    stroke-linejoin="round">
+                                    <path fill="#f7a35c"
+                                        d="M 465.29612909477817 201.49342558568821 C 461.85486163477844 194.33310622689555 459.7835324171944 188.0804973881719 458.3695016908874 180.5843922169475 L 613 166 C 613 166 613 166 613 166 Z"
+                                        data-z-index="314160.2653589793" transform="translate(0,0)"
+                                        class="highcharts-point highcharts-color-3"></path>
+                                </g>
+                                <g data-z-index="31416026.53589793" stroke="#8085e9" stroke-width="1"
+                                    stroke-linejoin="round">
+                                    <path fill="#8085e9"
+                                        d="M 458.3692954441662 180.58329881347896 C 455.1207999664115 163.36095595071816 457.0729654443332 148.30069485954516 464.6949808941023 131.7828894557173 L 613 166 C 613 166 613 166 613 166 Z"
+                                        data-z-index="314160.2653589793" transform="translate(0,0)"
+                                        class="highcharts-point highcharts-color-4"></path>
+                                </g>
+                                <g data-z-index="31416026.53589793" stroke="#f15c80" stroke-width="1"
+                                    stroke-linejoin="round">
+                                    <path fill="#f15c80"
+                                        d="M 464.6954648045355 131.78184078258124 C 471.34789712370457 117.36572510632608 480.40984549166916 105.93439184691282 494.32997620161495 94.39893348667657 L 613 166 C 613 166 613 166 613 166 Z"
+                                        data-z-index="314160.2653589793" transform="translate(0,0)"
+                                        class="highcharts-point highcharts-color-5"></path>
+                                </g>
+                                <g data-z-index="31416026.53589793" stroke="#e4d354" stroke-width="1"
+                                    stroke-linejoin="round">
+                                    <path fill="#e4d354"
+                                        d="M 494.3309887995419 94.39809436647111 C 525.0913526947098 68.90783726152242 565.5488780447556 55.7047203487283 612.9377590616397 55.69135091465948 L 613 166 C 613 166 613 166 613 166 Z"
+                                        data-z-index="314160.2653589793" transform="translate(0,0)"
+                                        class="highcharts-point highcharts-color-6"></path>
+                                </g>
+                            </g>
+                            <g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-pie-series "
+                                transform="translate(10,53) scale(1 1)"></g>
+                        </g>
+                        <g class="highcharts-exporting-group" data-z-index="3">
+                            <g class="highcharts-button highcharts-contextbutton" stroke-linecap="round"
+                                transform="translate(1212,10)">
+                                <title>Chart context menu</title>
+                                <rect fill="#ffffff" class=" highcharts-button-box" x="0.5" y="0.5" width="24"
+                                    height="22" rx="2" ry="2" stroke="none" stroke-width="1"></rect>
+                                <path fill="#666666" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5"
+                                    class="highcharts-button-symbol" data-z-index="1" stroke="#666666" stroke-width="3">
+                                </path><text x="0" data-z-index="1"
+                                    style="font-weight:normal;color:#333333;cursor:pointer;fill:#333333;" y="12"></text>
+                            </g>
+                        </g><text x="623" text-anchor="middle" class="highcharts-title" data-z-index="4"
+                            style="color:#333333;font-size:18px;fill:#333333;" y="24">
+                            <tspan>Indent Requested Department 2019-20</tspan>
+                        </text><text x="623" text-anchor="middle" class="highcharts-subtitle" data-z-index="4"
+                            style="color:#666666;fill:#666666;" y="52"></text>
+                        <g data-z-index="6"
+                            class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker"
+                            transform="translate(10,53) scale(1 1)" opacity="1" style="cursor:pointer;">
+                            <path fill="none" class="highcharts-data-label-connector highcharts-color-0"
+                                stroke="#7cb5ec" stroke-width="1"
+                                d="M 762.7143168066219 49.15066747647782 C 757.7143168066219 49.15066747647782 706.0050869892734 64.1407357934255 702.6834767396565 69.13742523240808 L 699.3618664900396 74.13411467139065">
+                            </path>
+                            <path fill="none" class="highcharts-data-label-connector highcharts-color-1"
+                                stroke="#434348" stroke-width="1"
+                                d="M 803.429285416516 180.5595367343974 C 798.429285416516 180.5595367343974 780.0907232524412 178.6893177186623 774.1231974219969 178.06591138008392 L 768.1556715915526 177.44250504150554">
+                            </path>
+                            <path fill="none" class="highcharts-data-label-connector highcharts-color-2"
+                                stroke="#90ed7d" stroke-width="1"
+                                d="M 484.36543898882815 304.9622082566869 C 489.36543898882815 304.9622082566869 589.7588606728992 287.13528221564695 590.5889013631528 281.19297353530027 L 591.4189420534063 275.2506648549536">
+                            </path>
+                            <path fill="none" class="highcharts-data-label-connector highcharts-color-3"
+                                stroke="#f7a35c" stroke-width="1"
+                                d="M 424.7785527010193 198.02969324965264 C 429.7785527010193 198.02969324965264 449.43390542838506 193.9215886480776 455.2755516630856 192.5522204475526 L 461.1171978977861 191.1828522470276">
+                            </path>
+                            <path fill="none" class="highcharts-data-label-connector highcharts-color-4"
+                                stroke="#8085e9" stroke-width="1"
+                                d="M 422.4422905901116 153.18062097621709 C 427.4422905901116 153.18062097621709 445.7023498796977 154.82482321206825 451.6772659554228 155.37289062401865 L 457.6521820311479 155.92095803596905">
+                            </path>
+                            <path fill="none" class="highcharts-data-label-connector highcharts-color-5"
+                                stroke="#f15c80" stroke-width="1"
+                                d="M 435.12004943239015 97.38132403098427 C 440.12004943239015 97.38132403098427 466.4595258031515 106.1839358882413 471.69311416732467 109.11813984066029 L 476.9267025314978 112.05234379307929">
+                            </path>
+                            <path fill="none" class="highcharts-data-label-connector highcharts-color-6"
+                                stroke="#e4d354" stroke-width="1"
+                                d="M 472.4967294627238 38.58389554808336 C 477.4967294627238 38.58389554808336 542.6411033884409 54.929283987182785 545.153921124568 60.37774680021593 L 547.6667388606951 65.82620961324908">
+                            </path>
+                            <g class="highcharts-label highcharts-data-label highcharts-data-label-color-0 "
+                                data-z-index="1" transform="translate(768,39)"><text x="5" data-z-index="1"
+                                    style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                    y="16">
+                                    <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+                                        stroke-width="2px" stroke-linejoin="round" style="">Chamoli</tspan>
+                                    <tspan x="5" y="16">Chamoli</tspan>
+                                </text></g>
+                            <g class="highcharts-label highcharts-data-label highcharts-data-label-color-1 "
+                                data-z-index="1" transform="translate(808,171)"><text x="5" data-z-index="1"
+                                    style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                    y="16">
+                                    <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+                                        stroke-width="2px" stroke-linejoin="round" style="">Champawat</tspan>
+                                    <tspan x="5" y="16">Champawat</tspan>
+                                </text></g>
+                            <g class="highcharts-label highcharts-data-label highcharts-data-label-color-2 "
+                                data-z-index="1" transform="translate(417,295)"><text x="5" data-z-index="1"
+                                    style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                    y="16">
+                                    <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+                                        stroke-width="2px" stroke-linejoin="round" style="">Dehradun</tspan>
+                                    <tspan x="5" y="16">Dehradun</tspan>
+                                </text></g>
+                            <g class="highcharts-label highcharts-data-label highcharts-data-label-color-3 "
+                                data-z-index="1" transform="translate(341,188)"><text x="5" data-z-index="1"
+                                    style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                    y="16">
+                                    <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+                                        stroke-width="2px" stroke-linejoin="round" style="">SellCounter1</tspan>
+                                    <tspan x="5" y="16">SellCounter1</tspan>
+                                </text></g>
+                            <g class="highcharts-label highcharts-data-label highcharts-data-label-color-4 "
+                                data-z-index="1" transform="translate(344,143)"><text x="5" data-z-index="1"
+                                    style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                    y="16">
+                                    <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+                                        stroke-width="2px" stroke-linejoin="round" style="">SellCounter</tspan>
+                                    <tspan x="5" y="16">SellCounter</tspan>
+                                </text></g>
+                            <g class="highcharts-label highcharts-data-label highcharts-data-label-color-5 "
+                                data-z-index="1" transform="translate(344,87)"><text x="5" data-z-index="1"
+                                    style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                    y="16">
+                                    <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+                                        stroke-width="2px" stroke-linejoin="round" style="">Tehri Garhwal</tspan>
+                                    <tspan x="5" y="16">Tehri Garhwal</tspan>
+                                </text></g>
+                            <g class="highcharts-label highcharts-data-label highcharts-data-label-color-6 "
+                                data-z-index="1" transform="translate(417,29)"><text x="5" data-z-index="1"
+                                    style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;"
+                                    y="16">
+                                    <tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+                                        stroke-width="2px" stroke-linejoin="round" style="">Nainital</tspan>
+                                    <tspan x="5" y="16">Nainital</tspan>
+                                </text></g>
+                        </g>
+                        <g class="highcharts-legend" data-z-index="7">
+                            <rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="8"
+                                height="8" visibility="hidden"></rect>
+                            <g data-z-index="1">
+                                <g></g>
+                            </g>
+                        </g><text x="1236" class="highcharts-credits" text-anchor="end" data-z-index="8"
+                            style="cursor: pointer; color: rgb(153, 153, 153); font-size: 9px; fill: rgb(153, 153, 153); display: none;"
+                            y="395">Highcharts.com</text>
+                        <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-top"
+                            data-z-index="1000">
+                            <path fill="none"
+                                d="M 28.133125074972213 70.33930773238774 L 1216.898036366518 70.33930773238774 L 1234.591067115744 137.16414006362726 L 10.411231306579452 137.16414006362726 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 11.408932884256046 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1217.0681957986335 70.98198312711611 L 28.931804201366504 70.98198312711611 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 28.133125074972213 70.33930773238774 L 10.411231306579452 137.16414006362726 L 11.408932884256046 137.16414006362726 L 28.931804201366504 70.98198312711611 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1234.591067115744 137.16414006362726 L 1216.898036366518 70.33930773238774 L 1217.0681957986335 70.98198312711611 L 1234.591067115744 137.16414006362726 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 10.411231306579452 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1234.591067115744 137.16414006362726 L 11.408932884256046 137.16414006362726 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1216.898036366518 70.33930773238774 L 28.133125074972213 70.33930773238774 L 28.931804201366504 70.98198312711611 L 1217.0681957986335 70.98198312711611 Z"
+                                visibility="hidden"></path>
+                        </g>
+                        <g stroke-linejoin="round" class="highcharts-3d-frame highcharts-3d-frame-front"
+                            data-z-index="1000">
+                            <path fill="none"
+                                d="M 65.20001978658263 358.39745966832993 L 1179.8915111902684 358.39745966832993 L 1180.0411229362498 357.7923523204669 L 65.95887706375004 357.7923523204669 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1234.591067115744 137.16414006362726 L 10.411231306579452 137.16414006362726 L 11.408932884256046 137.16414006362726 L 1234.591067115744 137.16414006362726 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 10.411231306579452 137.16414006362726 L 65.20001978658263 358.39745966832993 L 65.95887706375004 357.7923523204669 L 11.408932884256046 137.16414006362726 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1179.8915111902684 358.39745966832993 L 1234.591067115744 137.16414006362726 L 1234.591067115744 137.16414006362726 L 1180.0411229362498 357.7923523204669 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1234.591067115744 137.16414006362726 L 11.408932884256046 137.16414006362726 L 65.95887706375004 357.7923523204669 L 1180.0411229362498 357.7923523204669 Z"
+                                visibility="hidden"></path>
+                            <path fill="none"
+                                d="M 1179.8915111902684 358.39745966832993 L 65.20001978658263 358.39745966832993 L 10.411231306579452 137.16414006362726 L 1234.591067115744 137.16414006362726 Z"
+                                visibility="hidden"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="row m-t-10">
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/Department">
+                    </a>
+                    <div class="panel"><a href="/Department">
+
+                        </a>
+                        <div class="panel-content widget-info"><a href="/Department">
+                            </a>
+                            <div class="row"><a href="/Department">
+                                    <div class="left">
+                                        <i class="icon-users bg-orange"></i>
+                                    </div>
+                                </a>
+                                <div class="right"><a href="/Department">
+                                    </a>
+                                    <p class="number countup" data-from="0" data-to="66">66</p>
+                                    <p class="text">Total Department</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/User">
+                        <div class="panel">
+
+
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="icon-users bg-yellow"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p class="number countup" data-from="0" data-to="14">14</p>
+                                        <p class="text">Total User</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/Vendor">
+                        <div class="panel">
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="icon-users bg-orange"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p class="number countup" data-from="0" data-to="138">138</p>
+                                        <p class="text">Total Vendors</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/Category">
+                        <div class="panel">
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="fa fa-shopping-cart bg-blue"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p class="number countup" data-from="0" data-to="18">18</p>
+                                        <p class="text">Total Category</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/Item">
+                        <div class="panel">
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="icon-basket bg-blue-dark"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p class="number countup" data-from="0" data-to="3007">3,007</p>
+                                        <p class="text">Total Items</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/Indent/Request">
+                        <div class="panel">
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="fa fa-envelope-o bg-purple"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;"
+                                            data-from="0" data-to="226">226</p>
+                                        <p class="text">Total Indent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/PurchaseOrder">
+                        <div class="panel">
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="icon-calendar bg-blue"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;"
+                                            data-from="0" data-to="291">291</p>
+                                        <p class="text">Total PO</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/GRN">
+                        <div class="panel">
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="icon-calendar bg-blue"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p data-from="0" data-to="343"
+                                            style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;">
+
+
+
+                                            343
+
+                                        </p>
+                                        <p class="text">Total GRN</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="/IssueNote">
+                        <div class="panel">
+                            <div class="panel-content widget-info">
+                                <div class="row">
+                                    <div class="left">
+                                        <i class="icon-bulb bg-green"></i>
+                                    </div>
+                                    <div class="right">
+                                        <p style="font-family: 'Lato', 'Open Sans', Arial; font-weight: 700; font-size: 20px; margin-bottom: 2px;"
+                                            data-from="0" data-to="350">350</p>
+                                        <p class="text">Total Issue Note</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Ref web http://www.c-sharpcorner.com/UploadFile/1f3f2a/charting-in-mvc/ -->
+    <script>
+        $(function () {
+            $.ajax({
+                url: 'Dashbord/Chart1',
+                dataType: "json",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                async: false,
+                processData: false,
+                cache: false,
+                delay: 15,
+                success: function (data) {
+                    // alert(data);  
+                    var series = new Array();
+                    for (var i in data) {
+                        var serie = new Array(data[i].Value, data[i].Item);
+                        series.push(serie);
+                    }
+                    DrawPieChart(series);
+                    $('.highcharts-credits').css('display', 'none');
+
+                },
+                error: function (xhr) {
+                    alert('error');
+                }
+            });
+        });
+
+        function DrawPieChart(series) {
+            $('#container').highcharts({
+
+                chart: {
+                    type: 'pie',
+                    options3d: {
+                        enabled: true,
+                        alpha: 45,
+                        beta: 0
+                    }
+                },
+                title: {
+                    text: 'Indent Requested Department 2019-20'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        depth: 35,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Create Indent',
+                    data: series
+                }]
+            });
+        }
+
+    </script>
+
+
+
+    <div class="modal fade in" id="colored-header1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-backdrop fade in" style="height: 100%;"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="icons-office-52"></i></button>
+                    <h4>Unit Conversion</h4>
+                </div>
+                <div class="modal-body" id="units">
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="footer">
+        <div class="copyright">
+            <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2017 </span>
+                <span>Alight Consultants Pvt. Ltd.&nbsp;</span>
+                <span>All rights reserved. </span>
+            </p>
+
+        </div>
+    </div>
+    </div>
+    <!-- END PAGE CONTENT -->
+    </div>
+    <!-- END MAIN CONTENT -->
+    <!-- BEGIN BUILDER -->
+    <!-- END BUILDER -->
+    </section>
+    <!-- BEGIN QUICKVIEW SIDEBAR -->
+    <!-- END QUICKVIEW SIDEBAR -->
+    <!-- BEGIN SEARCH -->
+    <!-- END QUICKVIEW SIDEBAR -->
+    <!-- BEGIN PRELOADER -->
+    <!-- END PRELOADER -->
+    <script>
+        $(document).ready(function () {
+            if ($('ul.nav.nav-sidebar').find('a[href="/Dashbord"]').closest('li').parent().hasClass("children collapse")) {
+                $('ul.nav.nav-sidebar').find('a[href="/Dashbord"]').closest('li').addClass('active');
+                $('ul.nav.nav-sidebar').find('a[href="/Dashbord"]').closest('li').parent().parent().addClass('nav-active active');
+            } else
+                $('ul.nav.nav-sidebar').find('a[href="/Dashbord"]').closest('li').addClass('nav-active active');
+        });
+    </script>
+
+    <script>
+        $('#viewconversion').click(function (e) {
+            $.ajax({
+                type: 'GET',
+                url: '/Conversion/popup/',
+                async: true,
+                data: { ID: 0 },
+                cache: false,
+                success: function (data) {
+                    $('#units').html(data);
+                    $('#colored-header1').show();
+                },
+                error: function (xhr, status, error) {
+                    alert(error);
+                }
+
+            });
+        });
+
+        $('.close').click(function (e) {
+
+            $('#colored-header1').hide();
+
+        });
+
+    </script>
+
+    <div class="loader-overlay loaded">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+    <script src="/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="/assets/global/plugins/gsap/main-gsap.min.js"></script>
+    <script src="/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/global/plugins/jquery-cookies/jquery.cookies.min.js"></script>
+    <script src="/assets/global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/assets/global/plugins/icheck/icheck.min.js"></script>
+    <script src="/assets/global/js/builder.js"></script>
+    <script src="/assets/global/plugins/bootstrap/js/jasny-bootstrap.min.js"></script>
+    <script src="/Scripts/General/notifications.js"></script>
+    <script src="/assets/plugins/jnotify/jNotify.jquery.js"></script>
+    <script src="/assets/plugins/jnotify/jNotify.jquery.min.js"></script>
+    <script src="/assets/global/js/plugins.js"></script>
+    <script src="/assets/global/js/application.js"></script>
+    <script src="/assets/admin/layout1/js/layout.js"></script>
+    <script src="/assets/global/plugins/bootstrap-tags-input/bootstrap-tagsinput.min.js"></script>
+
+
+
+
+</body>
+
+</html>

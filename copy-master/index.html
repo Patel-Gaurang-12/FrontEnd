@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inventory Management</title>
+    <link rel="icon" href="assets/PrintHtml/files/favicon.png">
+
+    <link href="assets/global/css/style.css" rel="stylesheet">
+    <link href="assets/global/css/ui.css" rel="stylesheet">
+    <link href="assets/plugins/jnotify/jNotify.jquery.css" rel="stylesheet"/>
+
+    <script src="assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/global/js/pages/login-v1.js"></script>
+    <script src="Scripts/General/custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#username").val('');
+            $("#Password").val('');
+            $("#btnlogin").click(function () {
+                if ($('#Password').val() == '' && $('#username').val() == '') {
+                    ShowError("Please Enter UserName and Password.");
+                    $('#username').focus();
+                    return false;
+                } else if ($('#username').val() == '') {
+                    ShowError("Please Enter User Name.");
+                    $('#username').focus();
+                    return false;
+                }
+                else if ($('#Password').val() == '') {
+                    ShowError("Please Enter PassWord.");
+                    $('#Password').focus();
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
+    <!-- BEGIN Notify SCRIPTS -->
+    <script src="Scripts/General/notifications.js"></script>
+    <script src="assets/plugins/jnotify/jNotify.jquery.js"></script>
+    <script src="assets/plugins/jnotify/jNotify.jquery.min.js"></script>
+</head>
+
+<body class="account2" data-page="login">
+    <!-- BEGIN LOGIN BOX -->
+    <div class="container" id="login-block">
+        <i class="user-img icons-faces-users-03"></i>
+        <div class="account-info">
+            <a href="http://inventory.demoalight.com/dashboard.html" class="logo">|| Inventory ||</a>
+            <p>Inventory &amp; Stock Management</p>
+         <hr />
+                    <ul>
+                        <li><i class="icon-magic-wand"></i>Inventory Managemnet</li>
+                        <li><i class="icon-layers"></i>Asset Management</li>
+                        <li><i class="icon-arrow-right"></i>Stock Management</li>
+                        <li><i class="icon-drop"></i>MIS Reports</li>
+                    </ul>
+</div>
+        <div class="account-form">
+<form action="index.html" class="form-signin" method="post" role="form">                        <!-- Markup goes here -->
+                        <!--After Error Box-->
+<input name="__RequestVerificationToken" type="hidden" value="_KvqN-dt0YLGtemVcI-iR4YLQE8cXkPpwxtUUv9MBfnOxYhzwk32qi6YYqGSzM93wb2NzbURHeUz6GH9w1lul8OdtvyxorpvzsDOpS-CXno1" />                <div class="append-icon">
+                    <input class="form-control form-white username" data-val="true" data-val-required="The User name field is required." id="username" name="UserName" placeholder="Email" type="text" value="" />
+                    <i class="icon-user"></i>
+                </div>
+                <div class="append-icon m-b-20">
+                    <input class="form-control form-white password" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password" value="" />
+                    <i class="icon-lock"></i>
+                </div>
+    <button type="submit" id="btnlogin" class="btn btn-lg btn-dark btn-rounded ladda-button" data-style="expand-left">Log In</button>
+                <div class="clearfix">
+                    <p class="pull-left m-t-20"><a href="Login/ForgotPassword">Forgot password?</a></p>
+                </div>
+</form>            <form class="form-password" role="form">
+                <h3><strong>Reset</strong> your password</h3>
+                <div class="append-icon m-b-20">
+                    <input type="password" name="password" class="form-control form-white password" placeholder="Password" required>
+                    <i class="icon-lock"></i>
+                </div>
+                <button type="submit" id="submit-password" class="btn btn-lg btn-danger btn-block ladda-button" data-style="expand-left">Send Password Reset Link</button>
+                <div class="clearfix m-t-60">
+                    <p class="pull-left m-t-20 m-b-0"><a id="login" href="index.html#">Have an account? Sign In</a></p>
+                    <p class="pull-right m-t-20 m-b-0"><a href="http://inventory.demoalight.com/user-signup2.html">New here? Sign up</a></p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- END LOCKSCREEN BOX -->
+
+
+</body>
+
+</html>
+
